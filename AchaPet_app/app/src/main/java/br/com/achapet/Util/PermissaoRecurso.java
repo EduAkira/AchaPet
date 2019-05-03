@@ -39,8 +39,6 @@ public class PermissaoRecurso {
                 ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST);
                 if(MY_PERMISSIONS_REQUEST == PackageManager.PERMISSION_GRANTED)
                     flagPermissaoCamera = true;
-            }else{
-                flagPermissaoCamera = true;
             }
         }
     }
@@ -52,8 +50,6 @@ public class PermissaoRecurso {
                 ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST);
                 if(MY_PERMISSIONS_REQUEST == PackageManager.PERMISSION_GRANTED)
                     flagPermissaoArquivos = true;
-            }else{
-                flagPermissaoArquivos = true;
             }
         }
     }
@@ -65,8 +61,6 @@ public class PermissaoRecurso {
                 ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST);
                 if(MY_PERMISSIONS_REQUEST == PackageManager.PERMISSION_GRANTED)
                     flagPermissaoGPS = true;
-            }else{
-                flagPermissaoGPS = true;
             }
         }
     }
