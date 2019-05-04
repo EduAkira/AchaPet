@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity {
         t2.setText(""+ permissaoRecurso.possoUsarArquvo());
         t3.setText(""+ permissaoRecurso.possoUsarGPS());
 
-
-
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 t3.setText(""+ permissaoRecurso.possoUsarGPS());
             }
         });
-
 
     }
 }
