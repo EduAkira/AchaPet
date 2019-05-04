@@ -2,14 +2,14 @@ package br.com.achapet.Util;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-public class PermissaoRecurso {
+public class PermissaoRecurso extends AppCompatActivity {
 
     private boolean flagPermissaoCamera = false;
     private boolean flagPermissaoArquivos = false;
@@ -22,50 +22,6 @@ public class PermissaoRecurso {
         checarAsPermissao();
     }
 
-    public boolean possoUsarCamera(){
-        return flagPermissaoCamera;
-    }
-    public boolean possoUsarArquvo(){
-        return flagPermissaoArquivos;
-    }
-    public boolean possoUsarGPS(){
-        return flagPermissaoGPS;
-    }
-
-    public void pedirPermissaoCamera(){
-        if(flagPermissaoCamera == false){
-            if(Build.VERSION.SDK_INT >= 23){
-                int MY_PERMISSIONS_REQUEST = 0;
-                ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.CAMERA}, MY_PERMISSIONS_REQUEST);
-                if(MY_PERMISSIONS_REQUEST == PackageManager.PERMISSION_GRANTED)
-                    flagPermissaoCamera = true;
-            }
-        }
-    }
-
-    public void pedirPermissaoArquivo(){
-        if(flagPermissaoArquivos == false){
-            if(Build.VERSION.SDK_INT >= 23){
-                int MY_PERMISSIONS_REQUEST = 0;
-                ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_REQUEST);
-                if(MY_PERMISSIONS_REQUEST == PackageManager.PERMISSION_GRANTED)
-                    flagPermissaoArquivos = true;
-            }
-        }
-    }
-
-    public void pedirPermissaoGps(){
-        if(flagPermissaoGPS == false){
-            if(Build.VERSION.SDK_INT >= 23){
-                int MY_PERMISSIONS_REQUEST = 0;
-                ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, MY_PERMISSIONS_REQUEST);
-                if(MY_PERMISSIONS_REQUEST == PackageManager.PERMISSION_GRANTED)
-                    flagPermissaoGPS = true;
-            }
-        }
-    }
-
-
     public void checarAsPermissao(){
         if(ContextCompat.checkSelfPermission(mActivity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED)
             flagPermissaoCamera = true;
@@ -76,5 +32,47 @@ public class PermissaoRecurso {
         if(ContextCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(mActivity, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)
             flagPermissaoGPS = true;
+    }
+
+    public boolean possoUsarCamera(){
+        return flagPermissaoCamera;
+    }
+    public boolean possoUsarArquvo(){
+        return flagPermissaoArquivos;
+    }
+    public boolean possoUsarGPS(){
+        return flagPermissaoGPS;
+    }
+
+
+    public void pedirPermissaoCamera(){
+        if(flagPermissaoCamera == false)
+            pedirPermissao(new String[]{Manifest.permission.CAMERA});
+    }
+    public void pedirPermissaoArquivo(){
+        if(flagPermissaoArquivos == false)
+            pedirPermissao(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE});
+    }
+    public void pedirPermissaoGps(){
+        if(flagPermissaoGPS == false)
+            pedirPermissao(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION});
+    }
+
+    public void pedirPermissao(String[] permissao){
+        int MY_PERMISSIONS_REQUEST = 0;
+        if(Build.VERSION.SDK_INT >= 23){
+            ActivityCompat.requestPermissions(mActivity, permissao, MY_PERMISSIONS_REQUEST);
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(mActivity, permissao[0])){
+                //Log.e("PermissaoRecurso", "pedirPermissao com explicação");
+            }else{
+                //Log.e("PermissaoRecurso", "pedirPermissao sem explicação");
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        checarAsPermissao();
     }
 }
