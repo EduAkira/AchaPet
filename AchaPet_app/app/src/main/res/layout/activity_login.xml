@@ -4,29 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.LoginGoogleActivity"
+    tools:context=".Activity.LoginActivity"
     android:orientation="vertical"
-    android:gravity="center">
+    android:layout_marginLeft="30dp"
+    android:layout_marginRight="30dp">
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="visible"/>
+        android:text="Conectcar - se"
+        android:textSize="48dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"/>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:layout_marginBottom="30dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/singup_in_Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Senha">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/singup_in_Senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:id="@+id/login_registrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registar-se"
+        android:layout_gravity="right" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_conectar"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Conectcar"
+            android:layout_gravity="right"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OU"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textSize="20sp"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/material_text_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrar-se"
-        android:layout_gravity="center"/>
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        android:visibility="visible"/>
 
     <TextView
         android:layout_width="wrap_content"

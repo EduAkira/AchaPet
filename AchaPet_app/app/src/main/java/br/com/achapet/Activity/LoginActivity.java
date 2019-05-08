@@ -22,7 +22,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import br.com.achapet.R;
 
-public class LoginGoogleActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
@@ -37,6 +37,8 @@ public class LoginGoogleActivity extends AppCompatActivity implements View.OnCli
 
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
+        findViewById(R.id.login_registrar).setOnClickListener(this);
+        findViewById(R.id.login_conectar).setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -126,8 +128,7 @@ public class LoginGoogleActivity extends AppCompatActivity implements View.OnCli
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-
-
+            finish();
         } else {
 
         }
@@ -136,8 +137,17 @@ public class LoginGoogleActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
             case R.id.sign_in_button:
                 signIn();
+                break;
+
+            case R.id.login_registrar:
+                Intent intent = new Intent(this, CadastroPessoaActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.login_conectar:
                 break;
         }
     }
