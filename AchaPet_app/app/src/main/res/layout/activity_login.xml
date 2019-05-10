@@ -12,10 +12,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Conectcar - se"
+        android:text="Conectcar"
         android:textSize="48dp"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -25,9 +30,10 @@
         android:layout_marginBottom="30dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/singup_in_Email"
+            android:id="@+id/login_email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:inputType="textWebEmailAddress"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -37,7 +43,7 @@
         android:hint="Senha">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/singup_in_Senha"
+            android:id="@+id/login_senha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"/>
@@ -67,7 +73,7 @@
         android:textSize="20sp"/>
 
     <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
+        android:id="@+id/login_google"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_centerInParent="true"
