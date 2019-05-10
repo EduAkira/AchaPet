@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.CadastroPessoaActivity" />
-        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.LoginActivity" android:theme="@style/NoAppTheme"/>
         <activity android:name=".Activity.MainActivity"/>
     </application>
 

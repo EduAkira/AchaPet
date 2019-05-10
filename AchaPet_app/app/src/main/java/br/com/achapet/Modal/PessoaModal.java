@@ -24,9 +24,10 @@ public class PessoaModal{
 
     public PessoaModal() {
         mAuth = FirebaseAuth.getInstance();
-        mUser = mAuth.getCurrentUser();
-
-        informacaoDoUsuario();
+        if(mAuth != null)
+            mUser = mAuth.getCurrentUser();
+        if(mUser != null)
+            informacaoDoUsuario();
     }
 
     public FirebaseAuth getmAuth() {
@@ -83,6 +84,18 @@ public class PessoaModal{
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()) {
                     //senha Atualizada
+                }
+            }
+        });
+    }
+
+    public void esqueciSenha(String emailAddress){
+
+        mAuth.sendPasswordResetEmail(emailAddress).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    //email Enviado
                 }
             }
         });

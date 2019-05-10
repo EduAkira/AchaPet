@@ -5,83 +5,99 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.LoginActivity"
-    android:orientation="vertical"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Conectcar"
-        android:textSize="48dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp"/>
-
-    <TextView
+    android:orientation="vertical">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email"
-        android:layout_marginBottom="30dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_email"
+        android:layout_height="wrap_content">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textWebEmailAddress"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Senha">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_senha"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        android:id="@+id/login_registrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registar-se"
-        android:layout_gravity="right" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/login_conectar"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Conectcar"
-            android:layout_gravity="right"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="OU"
-        android:layout_gravity="center"
-        android:textSize="20sp"/>
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/login_google"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_centerInParent="true"
-        android:visibility="visible"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"/>
-
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/achapet"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conectar com"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:layout_marginBottom="10dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="15dp">
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/login_google"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="visible"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OU"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:hint="Email"
+                android:layout_marginBottom="15dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:inputType="textWebEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:hint="Senha"
+                android:layout_marginBottom="15dp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_senha"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:inputType="textWebPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_conectar"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Conectar"
+                android:layout_gravity="right"/>
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:id="@+id/login_esqueci_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Esqueci a Senha"
+                android:layout_gravity="center"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Não tem uma conta ?"/>
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:id="@+id/login_registrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registar"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

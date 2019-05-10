@@ -8,41 +8,39 @@
     tools:context=".Activity.SplashScreenActivity"
     android:orientation="vertical"
     android:gravity="center"
-    android:layout_marginLeft="30dp"
-    android:layout_marginRight="30dp">
-
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_marginBottom="30dp"/>
-
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="0dp"
+        android:src="@drawable/achapet"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Slogan"
-        android:textSize="48sp"
-        android:layout_marginBottom="30dp"/>
+        android:text="Juntando Família"
+        android:textSize="34sp"
+        android:layout_marginBottom="15dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:text="Perdi meu Pet"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="15dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:text="Achei um pet"
         android:layout_marginBottom="30dp"/>
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:onClick="cadastrarPessoa"
-        android:text="Registar-se"/>
+        android:text="conectar"/>
 
 
 </LinearLayout>
