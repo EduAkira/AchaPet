@@ -21,8 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.CadastroPessoaActivity" />
-        <activity android:name=".Activity.LoginActivity" android:theme="@style/NoAppTheme"/>
+        <activity android:name=".Activity.CadastroPessoaActivity" android:theme="@style/NoAppTheme"/>
+        <activity android:name=".Activity.LoginPessoaActivity" android:theme="@style/NoAppTheme"/>
         <activity android:name=".Activity.MainActivity"/>
     </application>
 

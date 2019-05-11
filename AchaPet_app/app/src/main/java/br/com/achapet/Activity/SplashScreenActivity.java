@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     public void cadastrarPessoa(View v){
-        Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, LoginPessoaActivity.class);
         startActivity(intent);
     }
 }

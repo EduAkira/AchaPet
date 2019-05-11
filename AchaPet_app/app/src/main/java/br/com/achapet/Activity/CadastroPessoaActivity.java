@@ -12,6 +12,8 @@ import android.widget.EditText;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuthException;
+
 import br.com.achapet.Modal.PessoaModal;
 import br.com.achapet.R;
 
@@ -60,11 +62,18 @@ public class CadastroPessoaActivity extends AppCompatActivity implements View.On
                         pessoaModal.atualizarPerfil(valName, valFoto);
                         pessoaModal = new PessoaModal();
                         Log.e("Login Registro", pessoaModal.toString());
+                        finish();
                     }else{
-                        Log.e("Login Registro",task.getException().toString());
+                        String erro = ((FirebaseAuthException) task.getException()).getErrorCode();
+                        pessoaModal.validar(erro, editTextEmail, editTextPassword);
+                        //Log.e("Login Registro",task.getException().toString());
                     }
                 }
             });
+        }else{
+            editTextNomeCompleto.setError("Campo Obrigatorio.");
+            editTextEmail.setError("Campo Obrigatorio.");
+            editTextPassword.setError("Campo Obrigatorio.");
         }
     }
 
