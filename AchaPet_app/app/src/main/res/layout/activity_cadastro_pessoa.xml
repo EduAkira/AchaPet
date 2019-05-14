@@ -6,13 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".Activity.CadastroPessoa.CadastroPessoaActivity"
     android:orientation="vertical">
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:background="@color/colorPrimary"
         app:titleTextColor="@color/primaryTextColor"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"/>
+    <ProgressBar
+        android:id="@+id/toolbarprogress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:indeterminate="true"
+        android:visibility="invisible"/>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,7 +41,6 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="15dp">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

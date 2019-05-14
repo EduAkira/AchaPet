@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -33,6 +34,8 @@ public class LoginPessoaActivity extends AppCompatActivity implements View.OnCli
     private EditText edLogin_email;
     private EditText edLogin_senha;
 
+    private Button ed_login_conectar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,8 @@ public class LoginPessoaActivity extends AppCompatActivity implements View.OnCli
 
         // Button listeners
         findViewById(R.id.login_google).setOnClickListener(this);
-        findViewById(R.id.login_conectar).setOnClickListener(this);
+        ed_login_conectar = findViewById(R.id.login_conectar);
+        ed_login_conectar.setOnClickListener(this);
         findViewById(R.id.login_esqueci_senha).setOnClickListener(this);
         findViewById(R.id.login_registrar).setOnClickListener(this);
 
@@ -62,6 +66,7 @@ public class LoginPessoaActivity extends AppCompatActivity implements View.OnCli
 
     private void signIn(String email, String senha) {
         if(!email.isEmpty() && !senha.isEmpty()){
+            ed_login_conectar.setEnabled(false);
             pessoaModal.getmAuth().signInWithEmailAndPassword(email, senha).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -75,6 +80,7 @@ public class LoginPessoaActivity extends AppCompatActivity implements View.OnCli
                         String erro = ((FirebaseAuthException) task.getException()).getErrorCode();
                         pessoaModal.validar(erro, edLogin_email, edLogin_senha);
                         Log.e("login google", "email ou senha invalida");
+                        ed_login_conectar.setEnabled(true);
                     }
                 }
             });

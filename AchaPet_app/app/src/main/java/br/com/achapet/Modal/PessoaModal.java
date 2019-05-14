@@ -89,18 +89,6 @@ public class PessoaModal{
         });
     }
 
-    public void esqueciSenha(String emailAddress){
-
-        mAuth.sendPasswordResetEmail(emailAddress).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    //email Enviado
-                }
-            }
-        });
-    }
-
     public void excluirConta(){
         mUser.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
