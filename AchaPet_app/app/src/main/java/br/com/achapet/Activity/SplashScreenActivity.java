@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import br.com.achapet.Activity.CadastroPessoa.LoginPessoaActivity;
 import br.com.achapet.R;
 
 public class SplashScreenActivity extends AppCompatActivity {

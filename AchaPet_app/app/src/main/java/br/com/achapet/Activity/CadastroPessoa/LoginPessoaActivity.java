@@ -1,4 +1,4 @@
-package br.com.achapet.Activity;
+package br.com.achapet.Activity.CadastroPessoa;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +36,7 @@ public class LoginPessoaActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_login_pessoa);
 
         // Button listeners
         findViewById(R.id.login_google).setOnClickListener(this);
@@ -123,19 +123,21 @@ public class LoginPessoaActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()) {
             case R.id.login_google:
                 signIn();
                 break;
             case R.id.login_registrar:
-                Intent intent = new Intent(this, CadastroPessoaActivity.class);
+                intent = new Intent(this, CadastroPessoaActivity.class);
                 startActivity(intent);
                 break;
             case R.id.login_conectar:
                 signIn(edLogin_email.getText().toString(), edLogin_senha.getText().toString());
                 break;
             case R.id.login_esqueci_senha:
-
+                intent = new Intent(this, RecuperarSenhaPessoaActivity.class);
+                startActivity(intent);
                 break;
         }
     }

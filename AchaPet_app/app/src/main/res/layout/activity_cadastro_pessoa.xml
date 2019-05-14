@@ -1,71 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.CadastroPessoaActivity"
+    tools:context=".Activity.CadastroPessoa.CadastroPessoaActivity"
     android:orientation="vertical">
 
-    <ScrollView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/primaryTextColor"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="?attr/actionBarSize">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/fundo_animais_1"
+                android:layout_gravity="bottom"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp">
 
-            <ImageView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="#DDD"
-                android:src="@drawable/ic_person_black_24dp"
-                android:layout_marginBottom="30dp"/>
-
+                android:textSize="28dp"
+                android:text="preencha os campos para concluir o cadastro"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Nome Completo"
-                android:layout_marginBottom="15dp">
-
+                android:layout_marginBottom="20dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cadastro_pessoa_nome"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"/>
-
+                    android:layout_height="64dp"
+                    android:inputType="textPersonName"/>
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Email"
-                android:layout_marginBottom="15dp">
-
+                android:layout_marginBottom="20dp">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cadastro_pessoa_email"
                     android:layout_width="match_parent"
-                    android:layout_height="64dp"/>
-
+                    android:layout_height="64dp"
+                    android:inputType="textWebEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Senha"
                 android:layout_marginBottom="30dp">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cadastro_pessoa_senha"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
                     android:inputType="textPassword"/>
-
             </com.google.android.material.textfield.TextInputLayout>
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/singup_in_button"
                 android:layout_width="wrap_content"
@@ -73,5 +83,5 @@
                 android:text="Cadastrar"
                 android:layout_gravity="right"/>
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -17,13 +17,12 @@
         <activity android:name=".Activity.SplashScreenActivity" android:theme="@style/NoAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.CadastroPessoaActivity" android:theme="@style/NoAppTheme"/>
-        <activity android:name=".Activity.LoginPessoaActivity" android:theme="@style/NoAppTheme"/>
-        <activity android:name=".Activity.MainActivity"/>
+        <activity android:name=".Activity.CadastroPessoa.RecuperarSenhaPessoaActivity" android:theme="@style/NoAppTheme"></activity>
+        <activity android:name=".Activity.CadastroPessoa.CadastroPessoaActivity" android:theme="@style/NoAppTheme" />
+        <activity android:name=".Activity.CadastroPessoa.LoginPessoaActivity" android:theme="@style/NoAppTheme" />
+        <activity android:name=".Activity.MainActivity" />
     </application>
-
 </manifest>
