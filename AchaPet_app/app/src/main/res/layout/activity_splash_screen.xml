@@ -27,7 +27,8 @@
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:text="Perdi meu Pet"
-        android:layout_marginBottom="15dp"/>
+        android:onClick="cadastrarAnimal"
+        android:layout_marginBottom="10dp"/>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"

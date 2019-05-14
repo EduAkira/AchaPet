@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AchaPet</string>
+    <string name="title_activity_cadrasto_animal">CadrastoAnimalActivity</string>
 </resources>
