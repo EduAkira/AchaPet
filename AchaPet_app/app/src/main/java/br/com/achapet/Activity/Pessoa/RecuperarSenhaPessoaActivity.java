@@ -28,7 +28,7 @@ public class RecuperarSenhaPessoaActivity extends AppCompatActivity implements V
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recuperar_senha_pessoa);
+        setContentView(R.layout.activity_pessoa_recuperar_senha);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,8 +57,8 @@ public class RecuperarSenhaPessoaActivity extends AppCompatActivity implements V
                     if (task.isSuccessful()) {
                         //email Enviado
                         bt_recuperar_button.setEnabled(false);
-                        new AlertDialog.Builder(RecuperarSenhaPessoaActivity.this).setTitle("Recuperação de Senha")
-                                .setMessage("Voce recebera em instantes um email para efetuar a troca da senha.")
+                        new AlertDialog.Builder(RecuperarSenhaPessoaActivity.this)
+                                .setTitle("Email enviado com sucesso")
                                 .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i){finish();}}).show();
