@@ -5,13 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.Animal.ListaCachorroPerdido">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@color/primaryTextColor"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
+    tools:context=".Activity.Pet.ListaPetActivity">
+
+    <include layout="@layout/toolbar"/>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         style="@style/Widget.MaterialComponents.TabLayout.Colored"
@@ -27,5 +24,11 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent"/>
     </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lista_view">
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
