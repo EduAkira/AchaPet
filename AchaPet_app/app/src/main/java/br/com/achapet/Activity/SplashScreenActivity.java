@@ -6,32 +6,47 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import br.com.achapet.Activity.CadastroPessoa.LoginPessoaActivity;
+import br.com.achapet.Activity.Animal.ListaCachorroPerdido;
+import br.com.achapet.Activity.Pessoa.CadastroPessoaActivity;
+import br.com.achapet.Activity.Pessoa.LoginPessoaActivity;
+import br.com.achapet.Activity.Pessoa.RecuperarSenhaPessoaActivity;
 import br.com.achapet.Modal.PessoaModal;
 import br.com.achapet.R;
 
-public class SplashScreenActivity extends AppCompatActivity {
+public class SplashScreenActivity extends AppCompatActivity implements View.OnClickListener{
 
     private PessoaModal pessoaModal;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
-        //pessoaModal = new PessoaModal();
+
+        findViewById(R.id.splash_conectar).setOnClickListener(this);
+        findViewById(R.id.splash_pet_perdido).setOnClickListener(this);
     }
-    
+
     @Override
     protected void onStart() {
         super.onStart();
         pessoaModal = new PessoaModal();
         if(pessoaModal.temUsuarioConectado()){
-            //finish();
             findViewById(R.id.splash_conectar).setVisibility(View.INVISIBLE);
         }
     }
 
-    public void cadastrarPessoa(View v){
-        Intent intent = new Intent(this, LoginPessoaActivity.class);
-        startActivity(intent);
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch (v.getId()) {
+            case R.id.splash_conectar:
+                intent = new Intent(this, LoginPessoaActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.splash_pet_perdido:
+                intent = new Intent(this, ListaCachorroPerdido.class);
+                startActivity(intent);
+                finish();
+                break;
+        }
     }
 }

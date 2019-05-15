@@ -13,16 +13,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Activity.SplashScreenActivity" android:theme="@style/NoAppTheme">
+        android:theme="@style/NoAppTheme">
+        <activity android:name=".Activity.Animal.ListaCachorroPerdido"></activity>
+        <activity
+            android:name=".Activity.SplashScreenActivity"
+            android:theme="@style/NoAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.CadastroPessoa.RecuperarSenhaPessoaActivity" android:theme="@style/NoAppTheme"></activity>
-        <activity android:name=".Activity.CadastroPessoa.CadastroPessoaActivity" android:theme="@style/NoAppTheme" />
-        <activity android:name=".Activity.CadastroPessoa.LoginPessoaActivity" android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".Activity.Pessoa.RecuperarSenhaPessoaActivity"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".Activity.Pessoa.CadastroPessoaActivity"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".Activity.Pessoa.LoginPessoaActivity"
+            android:theme="@style/NoAppTheme" />
         <activity android:name=".Activity.MainActivity" />
     </application>
+
 </manifest>

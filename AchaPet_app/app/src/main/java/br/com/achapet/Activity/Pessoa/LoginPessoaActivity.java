@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.CadastroPessoa;
+package br.com.achapet.Activity.Pessoa;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

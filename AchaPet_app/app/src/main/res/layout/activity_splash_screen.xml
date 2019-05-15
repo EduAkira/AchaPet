@@ -25,6 +25,7 @@
         android:layout_marginBottom="15dp"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/splash_pet_perdido"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:text="Perdi meu Pet"
@@ -41,7 +42,6 @@
         android:id="@+id/splash_conectar"
         android:layout_width="wrap_content"
         android:layout_height="64dp"
-        android:onClick="cadastrarPessoa"
         android:text="conectar"/>
 
 </LinearLayout>
