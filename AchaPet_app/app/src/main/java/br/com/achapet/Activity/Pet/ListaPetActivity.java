@@ -17,5 +17,14 @@ public class ListaPetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pet_lista);
 
+        ListaPetAdapter adapter = new ListaPetAdapter( getSupportFragmentManager() );
+        adapter.adicionar( new PerdidoPetFragment() , "Pet Perdidos");
+        adapter.adicionar( new AchadoPetFragment(), "Pet Achado");
+
+        ViewPager viewPager = (ViewPager) findViewById(R.id.lista_view);
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
     }
 }
