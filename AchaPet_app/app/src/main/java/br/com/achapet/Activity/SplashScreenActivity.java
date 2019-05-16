@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import br.com.achapet.Activity.Pet.ListaPetActivity;
+import br.com.achapet.Activity.Pet.PetActivity;
 import br.com.achapet.Activity.Pessoa.LoginPessoaActivity;
 import br.com.achapet.Modal.PessoaModal;
 import br.com.achapet.R;
@@ -41,7 +41,7 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
                 startActivity(intent);
                 break;
             case R.id.splash_pet_perdido:
-                intent = new Intent(this, ListaPetActivity.class);
+                intent = new Intent(this, PetActivity.class);
                 startActivity(intent);
                 finish();
                 break;

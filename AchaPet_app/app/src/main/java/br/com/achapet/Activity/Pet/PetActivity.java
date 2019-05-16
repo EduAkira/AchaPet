@@ -9,14 +9,14 @@ import com.google.android.material.tabs.TabLayout;
 
 import br.com.achapet.R;
 
-public class ListaPetActivity extends AppCompatActivity {
+public class PetActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_lista_activity);
 
-        ListaPetAdapter adapter = new ListaPetAdapter( getSupportFragmentManager() );
+        PetTabLayoutAdapter adapter = new PetTabLayoutAdapter( getSupportFragmentManager() );
         adapter.adicionar( new PerdidoPetFragment() , "Pet Perdidos");
         adapter.adicionar( new AchadoPetFragment(), "Pet Achado");
 

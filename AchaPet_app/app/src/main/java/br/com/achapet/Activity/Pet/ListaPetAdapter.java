@@ -1,38 +1,47 @@
 package br.com.achapet.Activity.Pet;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import java.util.List;
 
-public class ListaPetAdapter extends FragmentPagerAdapter {
+import br.com.achapet.Modal.PetModal;
+import br.com.achapet.R;
 
-    private List<Fragment> fragments = new ArrayList<>();
-    private List<String> titulos = new ArrayList<>();
+public class ListaPetAdapter extends RecyclerView.Adapter<ListaPetViewHolder> {
 
-    public ListaPetAdapter(FragmentManager fm) {
-        super(fm);
+    private List<PetModal> petModals;
+    private Context context;
+
+    public ListaPetAdapter(List<PetModal> petModals, Context context) {
+        this.petModals = petModals;
+        this.context = context;
     }
 
-    public void adicionar(Fragment fragment, String tituloAba){
-        this.fragments.add(fragment);
-        this.titulos.add(tituloAba);
+    @NonNull
+    @Override
+    public ListaPetViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View itemView = LayoutInflater.from(context).inflate(R.layout.card_item, viewGroup, false);
+        return new ListaPetViewHolder(itemView);
     }
 
     @Override
-    public Fragment getItem(int position) {
-        return this.fragments.get(position);
+    public void onBindViewHolder(@NonNull final ListaPetViewHolder listaPetViewHolder, int position) {
+        PetModal petModal = petModals.get(position);
+
+        listaPetViewHolder.getDescriptionTextView().setText(petModal.getDescricao());
+        listaPetViewHolder.getNameTextView().setText(petModal.getNome());
+        listaPetViewHolder.getDateTextView().setText(petModal.getDate());
     }
 
     @Override
-    public int getCount() {
-        return this.fragments.size();
+    public int getItemCount() {
+        return petModals.size();
     }
 
-    @Override
-    public CharSequence getPageTitle(int position){
-        return this.titulos.get(position);
-    }
 }

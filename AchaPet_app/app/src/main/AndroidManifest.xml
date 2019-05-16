@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.Pet.ListaPetActivity"
+            android:name=".Activity.Pet.PetActivity"
             android:theme="@style/NoAppTheme" />
         <activity
             android:name=".Activity.Pessoa.RecuperarSenhaPessoaActivity"
