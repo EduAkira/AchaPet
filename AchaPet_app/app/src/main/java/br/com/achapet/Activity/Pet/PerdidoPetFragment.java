@@ -12,7 +12,7 @@ import br.com.achapet.R;
 public class PerdidoPetFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_pet_perdido, container, false);
+        View view = inflater.inflate(R.layout.pet_perdido_fragment, container, false);
         return view;
     }
 

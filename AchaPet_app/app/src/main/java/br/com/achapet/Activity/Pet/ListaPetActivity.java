@@ -1,7 +1,6 @@
 package br.com.achapet.Activity.Pet;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -15,7 +14,7 @@ public class ListaPetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pet_lista);
+        setContentView(R.layout.pet_lista_activity);
 
         ListaPetAdapter adapter = new ListaPetAdapter( getSupportFragmentManager() );
         adapter.adicionar( new PerdidoPetFragment() , "Pet Perdidos");

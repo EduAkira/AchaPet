@@ -39,7 +39,7 @@ public class LoginPessoaActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pessoa_login);
+        setContentView(R.layout.pessoa_login_activity);
 
         // Button listeners
         findViewById(R.id.login_google).setOnClickListener(this);

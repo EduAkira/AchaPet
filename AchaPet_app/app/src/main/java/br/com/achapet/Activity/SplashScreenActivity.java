@@ -17,7 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.splash_screen_activity);
 
         findViewById(R.id.splash_conectar).setOnClickListener(this);
         findViewById(R.id.splash_pet_perdido).setOnClickListener(this);

@@ -39,7 +39,7 @@ public class CadastroPessoaActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pessoa_cadastro);
+        setContentView(R.layout.pessoa_cadastro_activity);
 
         //findViewById(R.id.toolbar);
 
