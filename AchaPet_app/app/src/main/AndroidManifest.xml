@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/NoAppTheme">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Activity.Pet.Detalhe.DetalhePetActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".Activity.SplashScreenActivity"
             android:theme="@style/NoAppTheme">

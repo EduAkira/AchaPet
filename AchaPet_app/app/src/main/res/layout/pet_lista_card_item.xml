@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center_horizontal"
-        android:id="@+id/linear_card_button"
+        android:id="@+id/linearCard"
         android:clickable="true"
         android:background="?attr/selectableItemBackground">
         <ImageView

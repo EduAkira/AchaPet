@@ -26,7 +26,6 @@ public class CadastroPessoaActivity extends AppCompatActivity implements View.On
     private String valName;
     private String valEmail;
     private String valPassword;
-    private Uri valFoto;
 
     private EditText editTextEmail;
     private EditText editTextNomeCompleto;
@@ -83,7 +82,7 @@ public class CadastroPessoaActivity extends AppCompatActivity implements View.On
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        pessoaModal.atualizarPerfil(valName, valFoto);
+                        pessoaModal.atualizarPerfil(valName);
                         pessoaModal = new PessoaModal();
                         //Log.e("Login Registro", pessoaModal.toString());
                         finish();
