@@ -19,7 +19,6 @@ public class PessoaModal{
     private String uid;
     private String nome;
     private String email;
-    private Uri fotoUrl;
 
     boolean emailVerificado;
 
@@ -50,10 +49,9 @@ public class PessoaModal{
         uid = mUser.getUid();
     }
 
-    public void atualizarPerfil(String nome, Uri foto){
+    public void atualizarPerfil(String nome){
         UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                 .setDisplayName(nome)
-                .setPhotoUri(foto)
                 .build();
 
         mUser.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -169,7 +167,6 @@ public class PessoaModal{
                 "uid='" + uid + '\'' +
                 ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", fotoUrl=" + fotoUrl +
                 ", emailVerificado=" + emailVerificado +
                 '}';
     }
