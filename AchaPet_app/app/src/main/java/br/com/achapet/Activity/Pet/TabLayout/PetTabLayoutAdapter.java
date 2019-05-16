@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet;
+package br.com.achapet.Activity.Pet.TabLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

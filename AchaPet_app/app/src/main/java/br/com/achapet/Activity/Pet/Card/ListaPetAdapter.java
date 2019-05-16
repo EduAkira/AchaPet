@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet;
+package br.com.achapet.Activity.Pet.Card;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -26,7 +26,7 @@ public class ListaPetAdapter extends RecyclerView.Adapter<ListaPetViewHolder> {
     @NonNull
     @Override
     public ListaPetViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.card_item, viewGroup, false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.pet_lista_card_item, viewGroup, false);
         return new ListaPetViewHolder(itemView);
     }
 
@@ -37,6 +37,8 @@ public class ListaPetAdapter extends RecyclerView.Adapter<ListaPetViewHolder> {
         listaPetViewHolder.getDescriptionTextView().setText(petModal.getDescricao());
         listaPetViewHolder.getNameTextView().setText(petModal.getNome());
         listaPetViewHolder.getDateTextView().setText(petModal.getDate());
+
+
     }
 
     @Override

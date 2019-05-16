@@ -32,6 +32,7 @@
         android:layout_marginBottom="15dp"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/splash_pet_achado"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:text="Achei um pet"

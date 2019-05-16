@@ -21,6 +21,7 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
 
         findViewById(R.id.splash_conectar).setOnClickListener(this);
         findViewById(R.id.splash_pet_perdido).setOnClickListener(this);
+        findViewById(R.id.splash_pet_achado).setOnClickListener(this);
     }
 
     @Override
@@ -42,8 +43,13 @@ public class SplashScreenActivity extends AppCompatActivity implements View.OnCl
                 break;
             case R.id.splash_pet_perdido:
                 intent = new Intent(this, PetActivity.class);
+                intent.putExtra("indexTabLayout", 0);
                 startActivity(intent);
-                finish();
+                break;
+            case R.id.splash_pet_achado:
+                intent = new Intent(this, PetActivity.class);
+                intent.putExtra("indexTabLayout", 1);
+                startActivity(intent);
                 break;
         }
     }
