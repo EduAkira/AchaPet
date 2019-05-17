@@ -36,22 +36,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp">
+            android:layout_marginLeft="@dimen/marginX"
+            android:layout_marginRight="@dimen/marginX"
+            android:layout_marginTop="@dimen/maginT">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="28dp"
                 android:text="Preencha os campos para concluir o cadastro"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="@dimen/marginX"
                 android:textAlignment="center"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Nome Completo"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="@dimen/marginX">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cadastro_pessoa_nome"
                     android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Email"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="@dimen/marginX">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cadastro_pessoa_email"
                     android:layout_width="match_parent"
@@ -73,7 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Senha"
-                android:layout_marginBottom="30dp">
+                android:layout_marginBottom="@dimen/marginX">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/cadastro_pessoa_senha"
                     android:layout_width="match_parent"

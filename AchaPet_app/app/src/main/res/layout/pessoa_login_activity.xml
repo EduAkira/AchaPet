@@ -13,13 +13,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
+            android:layout_marginLeft="@dimen/marginX"
+            android:layout_marginRight="@dimen/marginX">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="@dimen/maginT"
+                android:layout_marginBottom="@dimen/marginX"
                 android:src="@drawable/achapet"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -27,12 +27,12 @@
                 android:text="Conectar com"
                 android:layout_gravity="center"
                 android:textSize="20sp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="@dimen/marginX"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingBottom="15dp">
+                android:paddingBottom="@dimen/marginX">
                 <com.google.android.gms.common.SignInButton
                     android:id="@+id/login_google"
                     android:layout_width="match_parent"
@@ -46,12 +46,12 @@
                 android:text="OU"
                 android:textSize="20sp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="@dimen/marginX"/>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Email"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="@dimen/marginX">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/login_email"
                     android:layout_width="match_parent"
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:hint="Senha"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="@dimen/marginX">
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/login_senha"
                     android:layout_width="match_parent"

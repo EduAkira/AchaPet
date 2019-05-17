@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.achapet.Activity.Pet.Card.ListaPetAdapter;
+import br.com.achapet.Activity.Pet.Card.CardPetAdapter;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 
 public class AchadoPetFragment extends Fragment {
     private View view;
     private RecyclerView recyclerView;
-    private ListaPetAdapter listaPetAdapter;
+    private CardPetAdapter cardPetAdapter;
 
     private List<PetModal> petModals;
 
@@ -46,7 +46,7 @@ public class AchadoPetFragment extends Fragment {
         RecyclerView.LayoutManager layout = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layout);
 
-        listaPetAdapter = new ListaPetAdapter(petModals, getContext());
-        recyclerView.setAdapter(listaPetAdapter);
+        cardPetAdapter = new CardPetAdapter(petModals, getContext());
+        recyclerView.setAdapter(cardPetAdapter);
     }
 }

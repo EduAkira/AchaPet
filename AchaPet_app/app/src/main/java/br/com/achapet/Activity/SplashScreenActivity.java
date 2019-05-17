@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import br.com.achapet.Activity.Pet.PetActivity;
 import br.com.achapet.Activity.Pessoa.LoginPessoaActivity;
 import br.com.achapet.Modal.PessoaModal;

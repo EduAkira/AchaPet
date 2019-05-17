@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp">
+        android:layout_marginTop="@dimen/maginT"
+        android:layout_marginLeft="@dimen/marginX"
+        android:layout_marginRight="@dimen/marginX">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,11 +23,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/maginT"
             android:textAlignment="center"
             android:text="Por favor, informe o E-mail associado a sua conta que enviamos um link para efetuar a troca de senha."/>
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/marginX"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:hint="Email">
@@ -40,7 +40,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/recuperar_button"
             android:layout_width="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/marginX"
             android:layout_height="64dp"
             android:text="Recuperar"
             android:layout_gravity="right"/>

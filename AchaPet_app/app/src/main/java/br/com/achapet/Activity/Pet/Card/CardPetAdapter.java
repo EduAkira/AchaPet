@@ -15,31 +15,32 @@ import br.com.achapet.Activity.Pet.Detalhe.DetalhePetActivity;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 
-public class ListaPetAdapter extends RecyclerView.Adapter<ListaPetViewHolder> {
+public class CardPetAdapter extends RecyclerView.Adapter<CardPetViewHolder> {
 
     private List<PetModal> petModals;
     private Context context;
 
-    public ListaPetAdapter(List<PetModal> petModals, Context context) {
+    public CardPetAdapter(List<PetModal> petModals, Context context) {
         this.petModals = petModals;
         this.context = context;
     }
 
     @NonNull
     @Override
-    public ListaPetViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.pet_lista_card_item, viewGroup, false);
-        return new ListaPetViewHolder(itemView);
+    public CardPetViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View itemView = LayoutInflater.from(context).inflate(R.layout.pet_card_item, viewGroup, false);
+        return new CardPetViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final ListaPetViewHolder listaPetViewHolder, int position) {
+    public void onBindViewHolder(@NonNull final CardPetViewHolder cardPetViewHolder, int position) {
         PetModal petModal = petModals.get(position);
 
-        listaPetViewHolder.getDescriptionTextView().setText(petModal.getDescricao());
-        listaPetViewHolder.getNameTextView().setText(petModal.getNome());
-        listaPetViewHolder.getDateTextView().setText(petModal.getDate());
-        listaPetViewHolder.getLinearCard().setOnClickListener(new View.OnClickListener() {
+        /*cardPetViewHolder.getDescriptionTextView().setText(petModal.getDescricao());
+        cardPetViewHolder.getNameTextView().setText(petModal.getNome());
+        cardPetViewHolder.getDateTextView().setText(petModal.getDate());*/
+
+        cardPetViewHolder.getCardView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, DetalhePetActivity.class);
@@ -47,12 +48,9 @@ public class ListaPetAdapter extends RecyclerView.Adapter<ListaPetViewHolder> {
                 context.startActivity(intent);
             }
         });
-
     }
-
     @Override
     public int getItemCount() {
         return petModals.size();
     }
-
 }

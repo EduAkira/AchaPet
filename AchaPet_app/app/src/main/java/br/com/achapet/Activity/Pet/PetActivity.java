@@ -1,10 +1,12 @@
 package br.com.achapet.Activity.Pet;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -14,6 +16,8 @@ import br.com.achapet.Activity.Pet.TabLayout.PetTabLayoutAdapter;
 import br.com.achapet.R;
 
 public class PetActivity extends AppCompatActivity {
+
+    Intent intent;
 
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -25,7 +29,10 @@ public class PetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_activity);
 
-        Intent intent = getIntent();
+        intent = getIntent();
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         tabLayoutAtivo = intent.getIntExtra("indexTabLayout", 0);
 
@@ -40,5 +47,12 @@ public class PetActivity extends AppCompatActivity {
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu, this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.pet_menu, menu);
+        return true;
     }
 }
