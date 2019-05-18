@@ -1,7 +1,8 @@
 package br.com.achapet.Modal;
 
+import android.net.Uri;
+
 import java.net.URI;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,16 +11,17 @@ public class PetModal {
     private String nome;
     private String descricao;
     private String date;
-    private List<URI> foto = new ArrayList<>();
+    private List<Uri> foto;
 
     public PetModal(String nome, String descricao, String date) {
         this.nome = nome;
         this.descricao = descricao;
         this.date = date;
+        this.foto = new ArrayList<>();
     }
 
-    public PetModal() {
-
+    public PetModal(){
+        this.foto = new ArrayList<>();
     }
 
     public String getNome() {
@@ -38,11 +40,11 @@ public class PetModal {
         return foto;
     }
 
-    public void setFoto(List<URI> foto) {
+    public void setFoto(List<Uri> foto) {
         this.foto = foto;
     }
 
-    public void adicionarFoto(URI url){
+    public void adicionarFoto(Uri url){
         foto.add(url);
     }
 }

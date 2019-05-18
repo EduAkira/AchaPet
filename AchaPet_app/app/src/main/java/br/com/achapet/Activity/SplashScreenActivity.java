@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import br.com.achapet.Activity.Pet.PetActivity;

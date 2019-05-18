@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.material.tabs.TabLayout;
 
 import br.com.achapet.Activity.Pet.TabLayout.AchadoPetFragment;
@@ -29,23 +30,21 @@ public class PetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_activity);
 
-        intent = getIntent();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Fresco.initialize(this);
+
+        intent = getIntent();
         tabLayoutAtivo = intent.getIntExtra("indexTabLayout", 0);
 
+        viewPager = (ViewPager) findViewById(R.id.lista_view);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
         petTabLayoutAdapter = new PetTabLayoutAdapter( getSupportFragmentManager() );
         petTabLayoutAdapter.adicionar( new PerdidoPetFragment() , "Pet Perdidos");
         petTabLayoutAdapter.adicionar( new AchadoPetFragment(), "Pet Achado");
-
-        viewPager = (ViewPager) findViewById(R.id.lista_view);
         viewPager.setAdapter(petTabLayoutAdapter);
-
         viewPager.setCurrentItem(tabLayoutAtivo,true);
-
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
 

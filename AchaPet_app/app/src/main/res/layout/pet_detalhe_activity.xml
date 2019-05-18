@@ -14,19 +14,19 @@
             android:background="#808080"
             android:id="@+id/detalhe_viewPage"/>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center">
             <com.google.android.material.tabs.TabLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/detalhe_tablayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerInParent="true"
                 android:background="@android:color/transparent"
-                app:tabBackground="@drawable/default_indicator"
+                app:tabBackground="@drawable/indicator_layout"
                 app:tabGravity="center"
-                app:tabIndicatorHeight="0dp" />
+                app:tabIndicatorHeight="0dp"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
