@@ -5,9 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity2"
     android:orientation="vertical"
-    tools:context=".Activity.MainActivity">
+    android:gravity="center"
+    android:layout_marginLeft="@dimen/marginX"
+    android:layout_marginRight="@dimen/marginX">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/achapet"
+        android:layout_marginBottom="@dimen/marginX"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reunindo Família"
+        android:textSize="28sp"
+        android:layout_marginBottom="@dimen/marginX"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/splash_pet_perdido"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="Perdi meu Pet"
+        android:layout_marginBottom="@dimen/marginX"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/splash_pet_achado"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="Achei um pet"
+        android:layout_marginBottom="48dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:id="@+id/splash_conectar"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:text="conectar"/>
 
 </LinearLayout>
