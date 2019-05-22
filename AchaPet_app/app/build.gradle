@@ -37,7 +37,13 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
     //implementation 'com.firebaseui:firebase-ui-auth:4.1.0'
+
+    //dados banco
     implementation 'com.google.firebase:firebase-firestore:17.1.2'
+
+    //fotos
+    implementation 'com.google.firebase:firebase-storage:16.0.4'
+
 
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'

@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.Card;
+package br.com.achapet.Activity.Pet.card;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import br.com.achapet.Activity.Pet.Detalhe.DetalhePetActivity;
+import br.com.achapet.Activity.Pet.detalhe.DetalhePetActivity;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 

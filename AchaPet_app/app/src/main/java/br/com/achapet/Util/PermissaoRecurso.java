@@ -92,6 +92,7 @@ public class PermissaoRecurso extends AppCompatActivity {
                 ActivityCompat.requestPermissions(mActivity, permissao, MY_PERMISSIONS_REQUEST);
             }
         }
+        checarAsPermissao();
     }
 
     @Override

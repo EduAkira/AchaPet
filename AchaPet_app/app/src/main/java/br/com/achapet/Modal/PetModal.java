@@ -1,8 +1,8 @@
 package br.com.achapet.Modal;
 
+import android.graphics.Bitmap;
 import android.net.Uri;
 
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class PetModal {
         this.foto = foto;
     }
 
-    public void adicionarFoto(Uri url){
+    public void setFoto(Uri url){
         foto.add(url);
     }
 }

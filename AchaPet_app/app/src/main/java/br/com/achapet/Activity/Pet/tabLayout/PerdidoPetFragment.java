@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.TabLayout;
+package br.com.achapet.Activity.Pet.tabLayout;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

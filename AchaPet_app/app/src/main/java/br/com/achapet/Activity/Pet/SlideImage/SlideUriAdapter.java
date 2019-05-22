@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.detalhe.SlideImage;
+package br.com.achapet.Activity.Pet.SlideImage;
 
 import android.content.Context;
 import android.net.Uri;

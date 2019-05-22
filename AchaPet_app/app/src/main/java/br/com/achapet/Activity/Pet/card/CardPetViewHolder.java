@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.Card;
+package br.com.achapet.Activity.Pet.card;
 
 import android.view.View;
 

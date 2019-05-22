@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "48857680734-hhcjios0dtn5o3ialuh0l5pd9cufmt3u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.achapet",
+            "certificate_hash": "f5e22e709520a1bbaa5ae928148417bad232023e"
+          }
+        },
+        {
           "client_id": "48857680734-efr171c75gf1nn7ns3jjd7cq3nuqu7j7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

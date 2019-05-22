@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.TabLayout;
+package br.com.achapet.Activity.Pet.tabLayout;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -20,6 +20,7 @@ public class PetTabLayoutAdapter extends FragmentPagerAdapter {
         this.fragments.add(fragment);
         this.titulos.add(tituloAba);
     }
+
 
     @Override
     public Fragment getItem(int position) {

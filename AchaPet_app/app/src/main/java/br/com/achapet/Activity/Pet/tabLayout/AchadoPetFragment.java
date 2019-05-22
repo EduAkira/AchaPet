@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.TabLayout;
+package br.com.achapet.Activity.Pet.tabLayout;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.achapet.Activity.Pet.Card.CardPetAdapter;
+import br.com.achapet.Activity.Pet.card.CardPetAdapter;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 
