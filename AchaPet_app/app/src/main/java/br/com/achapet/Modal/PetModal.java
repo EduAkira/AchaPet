@@ -41,7 +41,7 @@ public class PetModal {
     }
 
     public void setFoto(List<Uri> foto) {
-        this.foto = foto;
+        this.foto.addAll(foto);
     }
 
     public void setFoto(Uri url){

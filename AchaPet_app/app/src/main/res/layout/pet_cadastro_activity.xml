@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.Pet.cadastro.PetCadastroActivity">
+    tools:context=".Activity.Pet.PetCadastroActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,7 +21,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <FrameLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <androidx.viewpager.widget.ViewPager
                         android:layout_width="match_parent"
@@ -43,8 +43,8 @@
                             app:tabGravity="center"
                             app:tabIndicatorHeight="0dp"/>
                     </LinearLayout>
-                    <include layout="@layout/pet_barra_servico_foto"/>
                 </FrameLayout>
+                <include layout="@layout/pet_barra_servico_foto"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

@@ -26,8 +26,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Pet.cadastro.PetCadastroActivity" />
-        <activity android:name=".Activity.Pet.detalhe.DetalhePetActivity" />
+        <activity android:name=".Activity.Pet.PetCadastroActivity" />
+        <activity android:name=".Activity.Pet.PetDetalheActivity" />
         <activity android:name=".Activity.Pet.PetActivity" android:theme="@style/NoAppTheme" />
         <activity android:name=".Activity.Pessoa.RecuperarSenhaPessoaActivity" android:theme="@style/NoAppTheme" />
         <activity android:name=".Activity.Pessoa.CadastroPessoaActivity" android:theme="@style/NoAppTheme" />

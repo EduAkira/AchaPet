@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.achapet.Activity.Pet.card.CardPetAdapter;
+import br.com.achapet.Activity.Pet.listaCard.CardPetAdapter;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 

@@ -12,7 +12,6 @@ import android.view.MenuItem;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.material.tabs.TabLayout;
 
-import br.com.achapet.Activity.Pet.cadastro.PetCadastroActivity;
 import br.com.achapet.Activity.Pet.tabLayout.AchadoPetFragment;
 import br.com.achapet.Activity.Pet.tabLayout.PerdidoPetFragment;
 import br.com.achapet.Activity.Pet.tabLayout.PetTabLayoutAdapter;

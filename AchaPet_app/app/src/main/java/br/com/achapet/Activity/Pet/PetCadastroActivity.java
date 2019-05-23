@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.cadastro;
+package br.com.achapet.Activity.Pet;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -6,19 +6,20 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
 
-import br.com.achapet.Activity.Pet.SlideImage.SlideUriAdapter;
+import br.com.achapet.Activity.Pet.slideImage.SlideUriAdapter;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 import br.com.achapet.Util.PermissaoRecurso;
@@ -33,14 +34,21 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     private PetModal petModal;
     private Uri imageFileUri;
 
+    private ImageButton petBarraEditarFoto;
+    private ImageButton petBarraRemoverFoto;
+    private TextView petCadastroMensagemFoto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_cadastro_activity);
 
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_close);
+        toolbar.setNavigationIcon(R.drawable.ic_arrow);
         toolbar.setNavigationOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -48,12 +56,15 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        findViewById(R.id.pet_barra_nova_foto).setOnClickListener(this);
-        cadastroViewPage = (ViewPager) findViewById(R.id.cadastro_viewPage);
-        cadastroTablayout = (TabLayout) findViewById(R.id.cadastro_tablayout);
+        cadastroViewPage = findViewById(R.id.cadastro_viewPage);
+        cadastroTablayout = findViewById(R.id.cadastro_tablayout);
+        petBarraEditarFoto =  findViewById(R.id.pet_barra_editar_foto);
+        petBarraRemoverFoto =  findViewById(R.id.pet_barra_remover_foto);
+        petCadastroMensagemFoto = findViewById(R.id.pet_cadastro_mensagem_foto);
 
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
+        findViewById(R.id.pet_barra_nova_foto).setOnClickListener(this);
+        petBarraEditarFoto.setOnClickListener(this);
+        petBarraRemoverFoto.setOnClickListener(this);
 
         permissaoRecurso = new PermissaoRecurso(PetCadastroActivity.this);
         petModal = new PetModal("","","");
@@ -65,11 +76,21 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         if(!petModal.getFoto().isEmpty()){
             cadastroViewPage.setVisibility(View.VISIBLE);
             cadastroTablayout.setVisibility(View.VISIBLE);
+            petBarraEditarFoto.setVisibility(View.VISIBLE);
+            petBarraRemoverFoto.setVisibility(View.VISIBLE);
+            petCadastroMensagemFoto.setVisibility(View.VISIBLE);
+
             cadastroTablayout.setupWithViewPager(cadastroViewPage, true);
             cadastroViewPage.setAdapter(slideUriAdapter);
+            cadastroViewPage.setCurrentItem(cadastroTablayout.getTabCount()-1,true);
+
         }else{
             cadastroViewPage.setVisibility(View.GONE);
             cadastroTablayout.setVisibility(View.GONE);
+            petCadastroMensagemFoto.setVisibility(View.GONE);
+
+            petBarraEditarFoto.setVisibility(View.INVISIBLE);
+            petBarraRemoverFoto.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -101,7 +122,6 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 15) {
             if(resultCode == Activity.RESULT_OK){
-                //usuário tirou a foto
                 Intent novaIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageFileUri);
                 sendBroadcast(novaIntent);
                 imageFileUri.getPath();

@@ -10,11 +10,38 @@
     android:gravity="center|right"
     android:layout_marginRight="@dimen/marginX"
     android:layout_marginLeft="@dimen/marginX">
+    <TextView
+        android:id="@+id/pet_cadastro_mensagem_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/marginX"
+        android:textSize="20sp"
+        android:text="Adicione ao menos uma foto"/>
+    <ImageButton
+        android:id="@+id/pet_barra_editar_foto"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_crop"
+        android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/pet_barra_remover_foto"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/marginX"
+        android:src="@drawable/ic_delete"
+        android:visibility="gone"/>
 
     <ImageButton
         android:id="@+id/pet_barra_nova_foto"
         android:clickable="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/marginX"
         android:src="@drawable/ic_add_a_photo" />
 </LinearLayout>

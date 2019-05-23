@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet.card;
+package br.com.achapet.Activity.Pet.listaCard;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-import br.com.achapet.Activity.Pet.detalhe.DetalhePetActivity;
+import br.com.achapet.Activity.Pet.PetDetalheActivity;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 
@@ -43,7 +43,7 @@ public class CardPetAdapter extends RecyclerView.Adapter<CardPetViewHolder> {
         cardPetViewHolder.getCardView().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, DetalhePetActivity.class);
+                Intent intent = new Intent(context, PetDetalheActivity.class);
                 intent.putExtra("indexTabLayout", 1);
                 context.startActivity(intent);
             }
