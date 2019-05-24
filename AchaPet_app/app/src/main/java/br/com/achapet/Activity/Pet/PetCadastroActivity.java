@@ -63,6 +63,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         petCadastroMensagemFoto = findViewById(R.id.pet_cadastro_mensagem_foto);
 
         findViewById(R.id.pet_barra_nova_foto).setOnClickListener(this);
+        findViewById(R.id.pet_barra_nova_galeria).setOnClickListener(this);
         petBarraEditarFoto.setOnClickListener(this);
         petBarraRemoverFoto.setOnClickListener(this);
 
@@ -104,9 +105,20 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
                 if(permissaoRecurso.possoUsarCamera() && permissaoRecurso.possoUsarArquvo())
                     usarCamera();
             break;
+            case R.id.pet_barra_nova_galeria:
+                permissaoRecurso.pedirPermissaoArquivo();
+                permissaoRecurso.pedirPermissaoCamera();
+                if(permissaoRecurso.possoUsarCamera() && permissaoRecurso.possoUsarArquvo())
+                    usarGalleria();
+            break;
         }
     }
-
+    private void usarGalleria(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Selecione imagens"), 0);
+    }
     private void usarCamera() {
         File diretorio = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File imagem = new File(diretorio.getPath() + "/" + System.currentTimeMillis() + ".jpg");
@@ -114,20 +126,25 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         takePictureIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, imageFileUri);
-        startActivityForResult(takePictureIntent, 15);
+        startActivityForResult(takePictureIntent, 1);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 15) {
+        if(requestCode == 1) {
             if(resultCode == Activity.RESULT_OK){
                 Intent novaIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageFileUri);
                 sendBroadcast(novaIntent);
                 imageFileUri.getPath();
                 petModal.setFoto(imageFileUri);
-                criarSlide();
             }
         }
+        if(requestCode == 0) {
+            if(resultCode == Activity.RESULT_OK){
+                petModal.setFoto(data.getData());
+            }
+        }
+        criarSlide();
     }
 }

@@ -44,4 +44,13 @@
         android:layout_height="48dp"
         android:layout_marginLeft="@dimen/marginX"
         android:src="@drawable/ic_add_a_photo" />
+
+    <ImageButton
+        android:id="@+id/pet_barra_nova_galeria"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="@dimen/marginX"
+        android:src="@drawable/ic_collections" />
 </LinearLayout>
