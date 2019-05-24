@@ -25,6 +25,7 @@ public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItem
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private PetTabLayoutAdapter petTabLayoutAdapter;
+    private PetPesquisarBottomSheetDialogFragment petPesquisarBottomSheetDialogFragment;
 
     private int tabLayoutPosicaoAtivo;
 
@@ -72,6 +73,10 @@ public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItem
                 intent = new Intent(this, PetCadastroActivity.class);
                 intent.putExtra(VALOR_TAB, tabLayoutPosicaoAtivo);
                 startActivity(intent);
+            break;
+            case R.id.pet_menu_pesquisar:
+                petPesquisarBottomSheetDialogFragment = new PetPesquisarBottomSheetDialogFragment();
+                petPesquisarBottomSheetDialogFragment.show(getSupportFragmentManager(),"Pesquisa");
             break;
         }
         return false;
