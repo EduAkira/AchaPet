@@ -8,7 +8,7 @@
     tools:context=".Activity.Pessoa.CadastroPessoaActivity"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/include_toolbar"/>
 
     <ProgressBar
         android:id="@+id/toolbarprogress"
@@ -28,9 +28,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="28dp"
-            android:text="Preencha os campos para concluir o cadastro"
-            android:layout_marginBottom="@dimen/marginX"
+            android:text="Seja Bem vindo"
             android:textAlignment="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/maginT"
+            android:layout_marginBottom="@dimen/marginX"
+            android:textAlignment="center"
+            android:text="Por favor, preencha todas as informações para concluir o cadastro"/>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="64dp"

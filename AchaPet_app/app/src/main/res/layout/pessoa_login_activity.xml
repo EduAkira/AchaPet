@@ -75,13 +75,14 @@
                 android:layout_height="64dp"
                 android:text="Conectar"
                 android:layout_gravity="right"/>
+
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:id="@+id/login_esqueci_senha"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Esqueci a Senha"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:text="Esqueci minha Senha" />
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,12 +92,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Não tem uma conta ?"/>
+
                 <com.google.android.material.button.MaterialButton
-                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:id="@+id/login_registrar"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Registra"/>
+                    android:text="Registra - se" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

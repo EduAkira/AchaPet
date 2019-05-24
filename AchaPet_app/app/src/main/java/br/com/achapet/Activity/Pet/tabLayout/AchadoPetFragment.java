@@ -17,6 +17,7 @@ import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 
 public class AchadoPetFragment extends Fragment {
+
     private View view;
     private RecyclerView recyclerView;
     private CardPetAdapter cardPetAdapter;

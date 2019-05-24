@@ -30,8 +30,8 @@ public class PetDetalheActivity extends AppCompatActivity {
         petModal.setFoto(Uri.parse("https://www.sticky.digital/wp-content/uploads/2013/11/img-6.jpg"));
 
         slideImagePagerAdapter = new SlideUriAdapter(getBaseContext(), petModal.getFoto());
-        detalheViewPage = (ViewPager) findViewById(R.id.detalhe_viewPage);
-        detalheTablayout = (TabLayout) findViewById(R.id.detalhe_tablayout);
+        detalheViewPage = (ViewPager) findViewById(R.id.slide_viewPage);
+        detalheTablayout = (TabLayout) findViewById(R.id.slide_tablayout);
         detalheTablayout.setupWithViewPager(detalheViewPage, true);
         detalheViewPage.setAdapter(slideImagePagerAdapter);
     }

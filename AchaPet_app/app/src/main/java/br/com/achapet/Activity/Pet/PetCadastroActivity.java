@@ -56,8 +56,8 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
-        cadastroViewPage = findViewById(R.id.cadastro_viewPage);
-        cadastroTablayout = findViewById(R.id.cadastro_tablayout);
+        cadastroViewPage = findViewById(R.id.slide_viewPage);
+        cadastroTablayout = findViewById(R.id.slide_tablayout);
         petBarraEditarFoto =  findViewById(R.id.pet_barra_editar_foto);
         petBarraRemoverFoto =  findViewById(R.id.pet_barra_remover_foto);
         petCadastroMensagemFoto = findViewById(R.id.pet_cadastro_mensagem_foto);
@@ -78,7 +78,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             cadastroTablayout.setVisibility(View.VISIBLE);
             petBarraEditarFoto.setVisibility(View.VISIBLE);
             petBarraRemoverFoto.setVisibility(View.VISIBLE);
-            petCadastroMensagemFoto.setVisibility(View.VISIBLE);
+            petCadastroMensagemFoto.setVisibility(View.GONE);
 
             cadastroTablayout.setupWithViewPager(cadastroViewPage, true);
             cadastroViewPage.setAdapter(slideUriAdapter);
@@ -87,10 +87,10 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         }else{
             cadastroViewPage.setVisibility(View.GONE);
             cadastroTablayout.setVisibility(View.GONE);
-            petCadastroMensagemFoto.setVisibility(View.GONE);
+            petCadastroMensagemFoto.setVisibility(View.VISIBLE);
 
-            petBarraEditarFoto.setVisibility(View.INVISIBLE);
-            petBarraRemoverFoto.setVisibility(View.INVISIBLE);
+            petBarraEditarFoto.setVisibility(View.GONE);
+            petBarraRemoverFoto.setVisibility(View.GONE);
         }
     }
 
