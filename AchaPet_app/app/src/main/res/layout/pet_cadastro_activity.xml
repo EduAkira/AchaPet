@@ -21,6 +21,15 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <include layout="@layout/include_slide"/>
+                <TextView
+                    android:id="@+id/pet_cadastro_mensagem_foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/marginX"
+                    android:layout_marginRight="@dimen/marginX"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:text="Adicione ao menos uma foto"/>
                 <include layout="@layout/pet_barra_servico_foto"/>
                 <LinearLayout
                     android:layout_width="match_parent"

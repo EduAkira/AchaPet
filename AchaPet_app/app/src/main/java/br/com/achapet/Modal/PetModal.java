@@ -40,6 +40,10 @@ public class PetModal {
         return foto;
     }
 
+    public void removerFoto(int position){
+        foto.remove(position);
+    }
+
     public void setFoto(List<Uri> foto) {
         this.foto.addAll(foto);
     }

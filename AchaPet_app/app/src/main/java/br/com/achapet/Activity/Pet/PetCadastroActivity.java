@@ -34,7 +34,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     private PetModal petModal;
     private Uri imageFileUri;
 
-    private ImageButton petBarraEditarFoto;
+    //private ImageButton petBarraEditarFoto;
     private ImageButton petBarraRemoverFoto;
     private TextView petCadastroMensagemFoto;
 
@@ -58,13 +58,13 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
         cadastroViewPage = findViewById(R.id.slide_viewPage);
         cadastroTablayout = findViewById(R.id.slide_tablayout);
-        petBarraEditarFoto =  findViewById(R.id.pet_barra_editar_foto);
+        //petBarraEditarFoto =  findViewById(R.id.pet_barra_editar_foto);
         petBarraRemoverFoto =  findViewById(R.id.pet_barra_remover_foto);
         petCadastroMensagemFoto = findViewById(R.id.pet_cadastro_mensagem_foto);
 
         findViewById(R.id.pet_barra_nova_foto).setOnClickListener(this);
         findViewById(R.id.pet_barra_nova_galeria).setOnClickListener(this);
-        petBarraEditarFoto.setOnClickListener(this);
+        //petBarraEditarFoto.setOnClickListener(this);
         petBarraRemoverFoto.setOnClickListener(this);
 
         permissaoRecurso = new PermissaoRecurso(PetCadastroActivity.this);
@@ -77,7 +77,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         if(!petModal.getFoto().isEmpty()){
             cadastroViewPage.setVisibility(View.VISIBLE);
             cadastroTablayout.setVisibility(View.VISIBLE);
-            petBarraEditarFoto.setVisibility(View.VISIBLE);
+            //petBarraEditarFoto.setVisibility(View.VISIBLE);
             petBarraRemoverFoto.setVisibility(View.VISIBLE);
             petCadastroMensagemFoto.setVisibility(View.GONE);
 
@@ -90,7 +90,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             cadastroTablayout.setVisibility(View.GONE);
             petCadastroMensagemFoto.setVisibility(View.VISIBLE);
 
-            petBarraEditarFoto.setVisibility(View.GONE);
+            //petBarraEditarFoto.setVisibility(View.GONE);
             petBarraRemoverFoto.setVisibility(View.GONE);
         }
     }
@@ -111,13 +111,20 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
                 if(permissaoRecurso.possoUsarCamera() && permissaoRecurso.possoUsarArquvo())
                     usarGalleria();
             break;
+            case R.id.pet_barra_remover_foto:
+                petModal.removerFoto(cadastroTablayout.getSelectedTabPosition());
+                criarSlide();
+            break;
+            case R.id.pet_barra_editar_foto:
+                criarSlide();
+                break;
         }
     }
     private void usarGalleria(){
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Selecione imagens"), 0);
+        startActivityForResult(Intent.createChooser(intent, "Selecione imagem"), 0);
     }
     private void usarCamera() {
         File diretorio = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
@@ -132,19 +139,17 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1) {
-            if(resultCode == Activity.RESULT_OK){
+        if(resultCode == Activity.RESULT_OK) {
+            if (requestCode == 1) {
                 Intent novaIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageFileUri);
                 sendBroadcast(novaIntent);
                 imageFileUri.getPath();
                 petModal.setFoto(imageFileUri);
             }
-        }
-        if(requestCode == 0) {
-            if(resultCode == Activity.RESULT_OK){
+            if (requestCode == 0) {
                 petModal.setFoto(data.getData());
             }
+            criarSlide();
         }
-        criarSlide();
     }
 }
