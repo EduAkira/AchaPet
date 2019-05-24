@@ -26,7 +26,7 @@ public class AchadoPetFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.pet_achado_fragment, container, false);
+        view = inflater.inflate(R.layout.pet_fragment_achado, container, false);
 
         petModals = new ArrayList<PetModal>();
 

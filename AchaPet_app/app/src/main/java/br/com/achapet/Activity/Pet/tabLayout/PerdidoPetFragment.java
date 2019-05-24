@@ -26,7 +26,7 @@ public class PerdidoPetFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.pet_perdido_fragment, container, false);
+        view = inflater.inflate(R.layout.pet_fragment_perdido, container, false);
         petModals = new ArrayList<PetModal>();
 
         PetModal petModals1 = new PetModal("NOME1", "DESCRICAO1", "DATA1");
