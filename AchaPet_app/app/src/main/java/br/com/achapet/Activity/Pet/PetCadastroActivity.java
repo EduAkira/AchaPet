@@ -12,6 +12,9 @@ import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -22,6 +25,7 @@ import java.io.File;
 import br.com.achapet.Activity.Pet.slideImage.SlideUriAdapter;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
+import br.com.achapet.Util.ListPopupWindowDialogHelper;
 import br.com.achapet.Util.PermissaoRecurso;
 
 public class PetCadastroActivity extends AppCompatActivity implements View.OnClickListener {
@@ -56,16 +60,29 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             }
         });
 
+
+        //slide
         cadastroViewPage = findViewById(R.id.slide_viewPage);
         cadastroTablayout = findViewById(R.id.slide_tablayout);
-        //petBarraEditarFoto =  findViewById(R.id.pet_barra_editar_foto);
+
+        //barra de foto
         petBarraRemoverFoto =  findViewById(R.id.pet_barra_remover_foto);
         petCadastroMensagemFoto = findViewById(R.id.pet_cadastro_mensagem_foto);
-
         findViewById(R.id.pet_barra_nova_foto).setOnClickListener(this);
         findViewById(R.id.pet_barra_nova_galeria).setOnClickListener(this);
-        //petBarraEditarFoto.setOnClickListener(this);
         petBarraRemoverFoto.setOnClickListener(this);
+
+
+        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper((EditText) findViewById(R.id.pet_campos_porte), R.menu.pet_porte_textfield,getApplicationContext());
+        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper((EditText) findViewById(R.id.pet_campos_sexo),R.menu.pet_sexo_textfield,getApplicationContext());
+        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper((EditText) findViewById(R.id.pet_campos_tipo),R.menu.pet_tipo_textfield,getApplicationContext());
+        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper((EditText) findViewById(R.id.pet_campos_cor),R.menu.pet_porte_textfield,getApplicationContext());
+
+        AutoCompleteTextView petCampoRaca = findViewById(R.id.pet_campos_raca);
+        String[] countries = getResources().getStringArray(R.array.cachorro);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_dropdown_item_1line, countries);
+        petCampoRaca.setAdapter(adapter);
+
 
         permissaoRecurso = new PermissaoRecurso(PetCadastroActivity.this);
         petModal = new PetModal("","","");
@@ -77,7 +94,6 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         if(!petModal.getFoto().isEmpty()){
             cadastroViewPage.setVisibility(View.VISIBLE);
             cadastroTablayout.setVisibility(View.VISIBLE);
-            //petBarraEditarFoto.setVisibility(View.VISIBLE);
             petBarraRemoverFoto.setVisibility(View.VISIBLE);
             petCadastroMensagemFoto.setVisibility(View.GONE);
 
@@ -89,8 +105,6 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             cadastroViewPage.setVisibility(View.GONE);
             cadastroTablayout.setVisibility(View.GONE);
             petCadastroMensagemFoto.setVisibility(View.VISIBLE);
-
-            //petBarraEditarFoto.setVisibility(View.GONE);
             petBarraRemoverFoto.setVisibility(View.GONE);
         }
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +11,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <include layout="@layout/include_toolbar"/>
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -23,15 +21,38 @@
                 <include layout="@layout/include_slide"/>
                 <TextView
                     android:id="@+id/pet_cadastro_mensagem_foto"
+                    android:layout_marginLeft="@dimen/marginX"
+                    android:layout_marginRight="@dimen/marginX"
+                    android:gravity="center"
+                    android:text="Adicione ao menos uma foto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/maginT"
+                    android:textAlignment="center"
+                    android:textSize="28sp"/>
+                <include layout="@layout/pet_barra_servico_foto"/>
+                <include layout="@layout/include_pet_campos"/>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:theme="@style/InputLayoutStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/marginX"
                     android:layout_marginRight="@dimen/marginX"
-                    android:gravity="center"
-                    android:textSize="20sp"
-                    android:text="Adicione ao menos uma foto"/>
-                <include layout="@layout/pet_barra_servico_foto"/>
-                <include layout="@layout/include_pet_campos"/>
+                    android:hint="Comentario">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/pet_cadastro_button"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="@dimen/marginX"
+                    android:layout_marginRight="@dimen/marginX"
+                    android:layout_marginTop="@dimen/marginX"
+                    android:layout_height="64dp"
+                    android:text="Cadastrar"
+                    android:layout_gravity="right"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

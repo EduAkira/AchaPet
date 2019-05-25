@@ -56,7 +56,7 @@
                     android:id="@+id/login_email"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
-                    android:inputType="textWebEmailAddress"/>
+                    android:inputType="textEmailAddress"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                     android:id="@+id/login_senha"
                     android:layout_width="match_parent"
                     android:layout_height="64dp"
-                    android:inputType="textWebPassword"/>
+                    android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/login_conectar"

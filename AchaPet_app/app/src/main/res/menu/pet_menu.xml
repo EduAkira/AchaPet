@@ -22,6 +22,10 @@
                 android:id="@+id/pet_menu_login"
                 android:title="Conectar"
                 app:showAsAction="never"/>
+            <item
+                android:id="@+id/pet_menu_sair"
+                android:title="Sair"
+                app:showAsAction="never"/>
         </menu>
     </item>
 </menu>
