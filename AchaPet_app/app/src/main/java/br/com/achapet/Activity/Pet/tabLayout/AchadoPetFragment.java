@@ -30,11 +30,6 @@ public class AchadoPetFragment extends Fragment {
 
         petModals = new ArrayList<PetModal>();
 
-        PetModal petModals1 = new PetModal("NOME1", "DESCRICAO1", "DATA1");
-        PetModal petModals2 = new PetModal("NOME2", "DESCRICAO2", "DATA2");
-        petModals.add(petModals1);
-        petModals.add(petModals2);
-
         setRecyclerView();
 
         return view;

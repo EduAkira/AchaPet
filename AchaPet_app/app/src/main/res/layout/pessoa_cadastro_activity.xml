@@ -16,20 +16,22 @@
         android:layout_width="match_parent"
         android:layout_height="8dp"
         android:indeterminate="true"
-        android:visibility="invisible"/>
+        android:visibility="gone"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:layout_marginTop="@dimen/maginT"
         android:layout_marginLeft="@dimen/marginX"
         android:layout_marginRight="@dimen/marginX">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="28dp"
             android:text="Seja Bem vindo"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:textSize="28dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

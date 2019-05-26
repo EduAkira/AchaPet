@@ -10,6 +10,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import java.util.List;
+
 public class PessoaModal{
 
     private FirebaseAuth mAuth;
@@ -18,6 +20,7 @@ public class PessoaModal{
     private String uid;
     private String nome;
     private String email;
+    private List<String>petRegistro;
 
     boolean emailVerificado;
 

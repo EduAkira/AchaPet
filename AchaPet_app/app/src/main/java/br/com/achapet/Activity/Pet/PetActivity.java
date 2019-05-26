@@ -21,6 +21,8 @@ import br.com.achapet.Activity.Pet.tabLayout.PetTabLayoutAdapter;
 import br.com.achapet.Modal.PessoaModal;
 import br.com.achapet.R;
 
+import static br.com.achapet.Activity.MainActivity.VALOR_TAB;
+
 public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
 
     private Intent intent;
@@ -32,7 +34,6 @@ public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItem
     private PessoaModal pessoaModal;
     private int tabLayoutPosicaoAtivo;
 
-    static public String VALOR_TAB = "VALOR_TAB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItem
         pessoaModal = new PessoaModal();
 
         intent = getIntent();
-        tabLayoutPosicaoAtivo = intent.getIntExtra("indexTabLayout", 0);
+        tabLayoutPosicaoAtivo = intent.getIntExtra(VALOR_TAB, 0);
 
         viewPager = (ViewPager) findViewById(R.id.lista_view);
         tabLayout = (TabLayout) findViewById(R.id.tabs);

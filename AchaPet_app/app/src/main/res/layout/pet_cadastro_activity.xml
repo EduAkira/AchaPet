@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_marginLeft="@dimen/marginX"
                     android:layout_marginRight="@dimen/marginX"
-                    android:layout_marginTop="@dimen/marginX"
+                    android:layout_marginBottom="@dimen/maginT"
                     android:layout_height="64dp"
                     android:text="Cadastrar"
                     android:layout_gravity="right"/>

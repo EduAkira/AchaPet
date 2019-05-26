@@ -23,11 +23,7 @@ public class PetDetalheActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_detalhe_activity);
-        petModal = new PetModal("","","");
-
-        petModal.setFoto(Uri.parse("https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg"));
-        petModal.setFoto(Uri.parse("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu2Tb3XfM0shkZGMEOy_VyXaVfKWbluaCWUenH80HTfD44bgnE"));
-        petModal.setFoto(Uri.parse("https://www.sticky.digital/wp-content/uploads/2013/11/img-6.jpg"));
+        petModal = new PetModal();
 
         slideImagePagerAdapter = new SlideUriAdapter(getBaseContext(), petModal.getFoto());
         detalheViewPage = (ViewPager) findViewById(R.id.slide_viewPage);

@@ -1,7 +1,6 @@
 package br.com.achapet.Activity.Pet.slideImage;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +40,7 @@ public class SlideUriAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         View slideImege = mLayoutInflater.inflate(R.layout.pet_slide, container, false);
 
-        Uri uri = (Uri) mResources.get(position);
+        String uri = (String) mResources.get(position);
         SimpleDraweeView slideImegeView = (SimpleDraweeView) slideImege.findViewById(R.id.detalhe_slide_image);
         slideImegeView.setImageURI(uri);
         container.addView(slideImege);

@@ -14,6 +14,8 @@ import br.com.achapet.R;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private PessoaModal pessoaModal;
+    static public String VALOR_TAB = "indexTabLayout";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.splash_pet_perdido:
                 intent = new Intent(this, PetActivity.class);
-                intent.putExtra("indexTabLayout", 0);
+                intent.putExtra(VALOR_TAB, 0);
                 startActivity(intent);
                 break;
             case R.id.splash_pet_achado:
                 intent = new Intent(this, PetActivity.class);
-                intent.putExtra("indexTabLayout", 1);
+                intent.putExtra(VALOR_TAB, 1);
                 startActivity(intent);
                 break;
         }
