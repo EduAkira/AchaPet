@@ -39,6 +39,8 @@ import br.com.achapet.Util.ListPopupWindowDialogHelper;
 import br.com.achapet.Util.PermissaoRecurso;
 
 import static br.com.achapet.Activity.MainActivity.VALOR_TAB;
+import static br.com.achapet.Modal.PetModal.COLLECTION_PET_ACHADO;
+import static br.com.achapet.Modal.PetModal.COLLECTION_PET_PERDIDO;
 
 public class PetCadastroActivity extends AppCompatActivity implements View.OnClickListener, View.OnFocusChangeListener {
 
@@ -121,7 +123,6 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
         permissaoRecurso = new PermissaoRecurso(PetCadastroActivity.this);
         petModal = new PetModal();
-        petModal.setCollectionPet(intent.getIntExtra(VALOR_TAB, 0));
         slideUriAdapter = new SlideUriAdapter(getBaseContext(), imagesFiles);
         criarSlide();
     }
@@ -149,7 +150,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     public void onFocusChange(View v, boolean hasFocus) {
         switch (v.getId()) {
             case R.id.pet_campos_raca:
-                Log.e("NOME: ", petComposTipoEditText.getText().toString());
+                //Log.e("NOME: ", petComposTipoEditText.getText().toString());
                 if(petComposTipoEditText.getText().toString().equals("Cachorro"))
                     racas = getResources().getStringArray(R.array.cachorros);
                 else if(petComposTipoEditText.getText().toString().equals("Gato"))
@@ -200,6 +201,12 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         toolbarProgress.setVisibility(View.VISIBLE);
         petCadastroButton.setEnabled(false);
         List<String> list = new ArrayList<>();
+
+        if(intent.getIntExtra(VALOR_TAB, 0) == 1){
+            petModal.setCollectionPet(COLLECTION_PET_ACHADO);
+        }else{
+            petModal.setCollectionPet(COLLECTION_PET_PERDIDO);
+        }
         if(!petComposPorteEditText.getText().toString().isEmpty()){
             petModal.setProte(petComposPorteEditText.getText().toString());
         }
@@ -229,13 +236,13 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         db.collection(petModal.getCollectionPet()).add(petModal).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                Log.d("TAG","DocumentSnapshot written with ID: "+documentReference.getId());
+                //Log.d("TAG","DocumentSnapshot written with ID: "+documentReference.getId());
                 finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.w("TAG", "Error adding document", e);
+                //Log.w("TAG", "Error adding document", e);
             }
         });
         petCadastroButton.setEnabled(true);

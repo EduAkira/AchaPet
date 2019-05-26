@@ -9,6 +9,7 @@ public class PetModal  implements Serializable {
     public static String COLLECTION_PET_PERDIDO = "petPerdido";
     public static String COLLECTION_PET_ACHADO = "petAchado";
 
+    private String id = "";
     private String tipo = "";
     private String raca = "";
     private String prote = "";
@@ -21,7 +22,8 @@ public class PetModal  implements Serializable {
     public PetModal(){
     }
 
-    public PetModal(String tipo, String raca, String prote, String sexo, String comentario, String status, String collectionPet, List<String> cor, List<String> foto) {
+    public PetModal(String id, String tipo, String raca, String prote, String sexo, String comentario, String collectionPet, List<String> cor, List<String> foto) {
+        this.id = id;
         this.tipo = tipo;
         this.raca = raca;
         this.prote = prote;
@@ -30,6 +32,14 @@ public class PetModal  implements Serializable {
         this.collectionPet = collectionPet;
         this.cor = cor;
         this.foto = foto;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTipo() {
@@ -76,12 +86,8 @@ public class PetModal  implements Serializable {
         return collectionPet;
     }
 
-    public void setCollectionPet(int collectionPet) {
-        if(collectionPet == 1){
-            this.collectionPet = COLLECTION_PET_ACHADO;
-        }else{
-            this.collectionPet = COLLECTION_PET_PERDIDO;
-        }
+    public void setCollectionPet(String collectionPet) {
+        this.collectionPet = collectionPet;
     }
 
     public List<String> getCor() {
@@ -103,7 +109,8 @@ public class PetModal  implements Serializable {
     @Override
     public String toString() {
         return "PetModal{" +
-                "tipo='" + tipo + '\'' +
+                "id='" + id + '\'' +
+                ", tipo='" + tipo + '\'' +
                 ", raca='" + raca + '\'' +
                 ", prote='" + prote + '\'' +
                 ", sexo='" + sexo + '\'' +

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
-    android:id="@+id/card_view"
+    android:id="@+id/pet_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/mtrl_card_spacing"
@@ -12,10 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="#808080"/>
+        <include layout="@layout/include_img"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,25 +22,20 @@
             android:layout_marginRight="@dimen/marginX"
             android:layout_marginBottom="@dimen/maginT">
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sexo"/>
-            <TextView
+                android:id="@+id/pet_card_raca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Raça"/>
             <TextView
+                android:id="@+id/pet_card_porte"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Porte"/>
             <TextView
+                android:id="@+id/pet_card_sexo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Data"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Cidade"/>
+                android:text="Sexo"/>
         </LinearLayout>
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

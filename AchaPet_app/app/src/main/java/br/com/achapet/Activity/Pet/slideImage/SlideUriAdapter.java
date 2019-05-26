@@ -38,10 +38,10 @@ public class SlideUriAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        View slideImege = mLayoutInflater.inflate(R.layout.pet_slide, container, false);
+        View slideImege = mLayoutInflater.inflate(R.layout.include_img, container, false);
 
         String uri = (String) mResources.get(position);
-        SimpleDraweeView slideImegeView = (SimpleDraweeView) slideImege.findViewById(R.id.detalhe_slide_image);
+        SimpleDraweeView slideImegeView = (SimpleDraweeView) slideImege.findViewById(R.id.include_image);
         slideImegeView.setImageURI(uri);
         container.addView(slideImege);
 
