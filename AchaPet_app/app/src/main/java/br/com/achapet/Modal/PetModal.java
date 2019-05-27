@@ -12,7 +12,7 @@ public class PetModal  implements Serializable {
     private String id = "";
     private String tipo = "";
     private String raca = "";
-    private String prote = "";
+    private String porte = "";
     private String sexo = "";
     private String comentario = "";
     private String collectionPet = "";
@@ -22,11 +22,11 @@ public class PetModal  implements Serializable {
     public PetModal(){
     }
 
-    public PetModal(String id, String tipo, String raca, String prote, String sexo, String comentario, String collectionPet, List<String> cor, List<String> foto) {
+    public PetModal(String id, String tipo, String raca, String porte, String sexo, String comentario, String collectionPet, List<String> cor, List<String> foto) {
         this.id = id;
         this.tipo = tipo;
         this.raca = raca;
-        this.prote = prote;
+        this.porte = porte;
         this.sexo = sexo;
         this.comentario = comentario;
         this.collectionPet = collectionPet;
@@ -58,12 +58,12 @@ public class PetModal  implements Serializable {
         this.raca = raca;
     }
 
-    public String getProte() {
-        return prote;
+    public String getPorte() {
+        return porte;
     }
 
-    public void setProte(String prote) {
-        this.prote = prote;
+    public void setPorte(String porte) {
+        this.porte = porte;
     }
 
     public String getSexo() {
@@ -101,9 +101,12 @@ public class PetModal  implements Serializable {
     public List<String> getFoto() {
         return foto;
     }
-
     public void setFoto(List<String> foto) {
         this.foto = foto;
+    }
+
+    public String getNomeFoto(){
+        return "/images/"+collectionPet+"/"+id+"/";
     }
 
     @Override
@@ -112,7 +115,7 @@ public class PetModal  implements Serializable {
                 "id='" + id + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", raca='" + raca + '\'' +
-                ", prote='" + prote + '\'' +
+                ", porte='" + porte + '\'' +
                 ", sexo='" + sexo + '\'' +
                 ", comentario='" + comentario + '\'' +
                 ", collectionPet='" + collectionPet + '\'' +
