@@ -36,10 +36,13 @@ public class CardPetAdapter extends RecyclerView.Adapter<CardPetViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final CardPetViewHolder cardPetViewHolder, int position) {
         PetModal petModal = petModals.get(position);
+        String url = "";
+        if(!petModal.getFoto().isEmpty())
+            url = petModal.getFoto().get(0);
 
-        cardPetViewHolder.getImage().setImageURI(petModal.getFoto().get(0));
+        cardPetViewHolder.getImage().setImageURI(url);
         cardPetViewHolder.getRaca().setText(petModal.getRaca());
-        cardPetViewHolder.getPorte().setText(petModal.getProte());
+        cardPetViewHolder.getPorte().setText(petModal.getPorte());
         cardPetViewHolder.getSexo().setText(petModal.getSexo());
 
         cardPetViewHolder.getCardView().setOnClickListener(new View.OnClickListener() {
@@ -51,6 +54,7 @@ public class CardPetAdapter extends RecyclerView.Adapter<CardPetViewHolder> {
             }
         });
     }
+
     @Override
     public int getItemCount() {
         return petModals.size();
