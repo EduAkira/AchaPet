@@ -9,7 +9,6 @@ public class PetModal  implements Serializable {
     public static String COLLECTION_PET_PERDIDO = "petPerdido";
     public static String COLLECTION_PET_ACHADO = "petAchado";
 
-    private String id = "";
     private String tipo = "";
     private String raca = "";
     private String porte = "";
@@ -22,8 +21,7 @@ public class PetModal  implements Serializable {
     public PetModal(){
     }
 
-    public PetModal(String id, String tipo, String raca, String porte, String sexo, String comentario, String collectionPet, List<String> cor, List<String> foto) {
-        this.id = id;
+    public PetModal(String tipo, String raca, String porte, String sexo, String comentario, String collectionPet, List<String> cor, List<String> foto) {
         this.tipo = tipo;
         this.raca = raca;
         this.porte = porte;
@@ -32,14 +30,6 @@ public class PetModal  implements Serializable {
         this.collectionPet = collectionPet;
         this.cor = cor;
         this.foto = foto;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getTipo() {
@@ -106,13 +96,12 @@ public class PetModal  implements Serializable {
     }
 
     public String getNomeFoto(){
-        return "/images/"+collectionPet+"/"+id+"/";
+        return "/images/"+collectionPet+"/";
     }
 
     @Override
     public String toString() {
         return "PetModal{" +
-                "id='" + id + '\'' +
                 ", tipo='" + tipo + '\'' +
                 ", raca='" + raca + '\'' +
                 ", porte='" + porte + '\'' +

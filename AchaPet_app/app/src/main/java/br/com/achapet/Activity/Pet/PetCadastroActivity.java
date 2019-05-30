@@ -27,6 +27,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -50,9 +53,6 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     private SlideUriAdapter slideUriAdapter;
     private ViewPager cadastroViewPage;
     private TabLayout cadastroTablayout;
-    private PetModal petModal;
-    private Uri imageFileUri;
-    private List<String> imagesFiles = new ArrayList<>();
     private Button petCadastroButton;
 
     private Intent intent;
@@ -67,9 +67,15 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     private EditText petComposCor1EditText;
     private AutoCompleteTextView petCampoRacaEditText;
 
+    private PetModal petModal;
+    private List<String> fotos;
+    private List<String> cors;
+    private Uri imageFile;
+
     private FirebaseFirestore db;
 
-    private String[] racas;
+    private FirebaseStorage firebaseStorage;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,14 +127,20 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposCorEditText, R.menu.pet_cor_textfield, getApplicationContext());
         ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposCor1EditText, R.menu.pet_cor_textfield, getApplicationContext());
 
+        fotos = new ArrayList<>();
+        cors = new ArrayList<>();
+
+
+        firebaseStorage = FirebaseStorage.getInstance();
+
         permissaoRecurso = new PermissaoRecurso(PetCadastroActivity.this);
         petModal = new PetModal();
-        slideUriAdapter = new SlideUriAdapter(getBaseContext(), imagesFiles);
+        slideUriAdapter = new SlideUriAdapter(getBaseContext(), fotos);
         criarSlide();
     }
 
     public void criarSlide(){
-        if(!imagesFiles.isEmpty()){
+        if(!fotos.isEmpty()){
             cadastroViewPage.setVisibility(View.VISIBLE);
             cadastroTablayout.setVisibility(View.VISIBLE);
             petBarraRemoverFoto.setVisibility(View.VISIBLE);
@@ -148,9 +160,9 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
+        String[] racas;
         switch (v.getId()) {
             case R.id.pet_campos_raca:
-                //Log.e("NOME: ", petComposTipoEditText.getText().toString());
                 if(petComposTipoEditText.getText().toString().equals("Cachorro"))
                     racas = getResources().getStringArray(R.array.cachorros);
                 else if(petComposTipoEditText.getText().toString().equals("Gato"))
@@ -180,7 +192,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
                     usarGalleria();
             break;
             case R.id.pet_barra_remover_foto:
-                imagesFiles.remove(cadastroTablayout.getSelectedTabPosition()) ;
+                fotos.remove(cadastroTablayout.getSelectedTabPosition()) ;
                 criarSlide();
             break;
             case R.id.pet_barra_editar_foto:
@@ -192,43 +204,87 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             break;
             case R.id.pet_cadastro_button:
                 validarCampos();
-                cadastrarPet();
             break;
         }
     }
 
     private void validarCampos(){
+        Boolean add = true;
         toolbarProgress.setVisibility(View.VISIBLE);
         petCadastroButton.setEnabled(false);
-        List<String> list = new ArrayList<>();
 
         if(intent.getIntExtra(VALOR_TAB, 0) == 1){
             petModal.setCollectionPet(COLLECTION_PET_ACHADO);
         }else{
             petModal.setCollectionPet(COLLECTION_PET_PERDIDO);
         }
+
         if(!petComposPorteEditText.getText().toString().isEmpty()){
-            petModal.setProte(petComposPorteEditText.getText().toString());
+            petModal.setPorte(petComposPorteEditText.getText().toString());
+        }else{
+            petComposPorteEditText.setError("campo obrigatorio");
+            add = false;
         }
         if(!petComposSexoEditText.getText().toString().isEmpty()){
             petModal.setSexo(petComposSexoEditText.getText().toString());
+        }else{
+            petComposSexoEditText.setError("campo obrigatorio");
+            add = false;
         }
         if(!petComposTipoEditText.getText().toString().isEmpty()){
             petModal.setTipo(petComposTipoEditText.getText().toString());
+        }else{
+            petComposTipoEditText.setError("campo obrigatorio");
+            add = false;
         }
         if(!petComposCorEditText.getText().toString().isEmpty()){
-            list.add(petComposCorEditText.getText().toString());
+            cors.add(petComposCorEditText.getText().toString());
             if(!petComposCor1EditText.getText().toString().isEmpty())
-                list.add(petComposCor1EditText.getText().toString());
+                cors.add(petComposCor1EditText.getText().toString());
 
-            petModal.setCor(list);
+            petModal.setCor(cors);
+        }else{
+            petComposCorEditText.setError("campo obrigatorio");
+            petComposCor1EditText.setError("campo obrigatorio");
+            add = false;
         }
         if(!petCampoRacaEditText.getText().toString().isEmpty()){
             petModal.setRaca(petCampoRacaEditText.getText().toString());
+        }else{
+            petCampoRacaEditText.setError("campo obrigatorio");
+            add = false;
         }
-        if(!imagesFiles.isEmpty()){
-            petModal.setFoto(imagesFiles);
+        if(!fotos.isEmpty()){
+            petModal.setFoto(fotos);
+        }else{
+            add = false;
         }
+
+        if(add){
+            cadastrarPet();
+        }else{
+            toolbarProgress.setVisibility(View.GONE);
+            petCadastroButton.setEnabled(true);
+        }
+    }
+
+    private void updateFoto(){
+        storageReference = firebaseStorage.getReference(petModal.getNomeFoto());
+        //In the putFile method, you get a TaskSnapshot which contains the details of your uploaded file
+        storageReference.putFile(imageFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        // Got the download URL for 'users/me/profile.png'
+                        //String linkFoto = taskSnapshot.getUploadSessionUri().toString();
+                        fotos.add(uri.toString());
+                        criarSlide();
+                    }
+                });
+            }
+        });
     }
 
     private void cadastrarPet(){
@@ -236,17 +292,16 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         db.collection(petModal.getCollectionPet()).add(petModal).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                //Log.d("TAG","DocumentSnapshot written with ID: "+documentReference.getId());
                 finish();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
+                petCadastroButton.setEnabled(true);
+                toolbarProgress.setVisibility(View.GONE);
                 //Log.w("TAG", "Error adding document", e);
             }
         });
-        petCadastroButton.setEnabled(true);
-        toolbarProgress.setVisibility(View.VISIBLE);
     }
 
     private void usarGalleria(){
@@ -258,26 +313,27 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     private void usarCamera() {
         File diretorio = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File imagem = new File(diretorio.getPath() + "/" + System.currentTimeMillis() + ".jpg");
-        imageFileUri  = Uri.fromFile(imagem);
+        imageFile  = Uri.fromFile(imagem);
 
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        takePictureIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, imageFileUri);
-        startActivityForResult(takePictureIntent, 1);
+        takePictureIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, imageFile);
+        startActivityForResult(takePictureIntent, 15);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == Activity.RESULT_OK){
-            if (requestCode == 1) {
-                Intent novaIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageFileUri);
+            if (requestCode == 15) {
+                Intent novaIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageFile);
                 sendBroadcast(novaIntent);
-                imagesFiles.add(String.valueOf(imageFileUri));
+
             }
             if (requestCode == 0) {
-                imagesFiles.add(String.valueOf(data.getData()));
+                imageFile = data.getData();
             }
-            criarSlide();
+
+            updateFoto();
         }
     }
 }
