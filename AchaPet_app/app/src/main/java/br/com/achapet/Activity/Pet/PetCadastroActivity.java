@@ -34,6 +34,7 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import br.com.achapet.Activity.Pet.slideImage.SlideUriAdapter;
 import br.com.achapet.Modal.PetModal;
@@ -145,6 +146,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             cadastroTablayout.setVisibility(View.VISIBLE);
             petBarraRemoverFoto.setVisibility(View.VISIBLE);
             petCadastroMensagemFoto.setVisibility(View.GONE);
+            toolbarProgress.setVisibility(View.GONE);
 
             cadastroTablayout.setupWithViewPager(cadastroViewPage, true);
             cadastroViewPage.setAdapter(slideUriAdapter);
@@ -155,6 +157,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             cadastroTablayout.setVisibility(View.GONE);
             petCadastroMensagemFoto.setVisibility(View.VISIBLE);
             petBarraRemoverFoto.setVisibility(View.GONE);
+            toolbarProgress.setVisibility(View.GONE);
         }
     }
 
@@ -254,11 +257,11 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             petCampoRacaEditText.setError("campo obrigatorio");
             add = false;
         }
-        if(!fotos.isEmpty()){
-            petModal.setFoto(fotos);
+        /*if(!fotos.isEmpty()){
+            updateFoto();
         }else{
             add = false;
-        }
+        }*/
 
         if(add){
             cadastrarPet();
@@ -269,22 +272,26 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void updateFoto(){
-        storageReference = firebaseStorage.getReference(petModal.getNomeFoto());
-        //In the putFile method, you get a TaskSnapshot which contains the details of your uploaded file
-        storageReference.putFile(imageFile).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        // Got the download URL for 'users/me/profile.png'
-                        //String linkFoto = taskSnapshot.getUploadSessionUri().toString();
-                        fotos.add(uri.toString());
-                        criarSlide();
-                    }
-                });
-            }
-        });
+        toolbarProgress.setVisibility(View.VISIBLE);
+        for(final String foto:fotos){
+            storageReference = firebaseStorage.getReference(petModal.pethFoto()+fotos.indexOf(foto));
+            storageReference.putFile(Uri.parse(foto)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>(){
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            petModal.addFoto(uri.toString());
+                            if(fotos.get(fotos.size()-1) == foto){
+                                db.collection(petModal.getCollectionPet()).document(petModal.getId()).update("foto", petModal.getFoto());
+                                finish();
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
     }
 
     private void cadastrarPet(){
@@ -292,7 +299,8 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         db.collection(petModal.getCollectionPet()).add(petModal).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                finish();
+                petModal.setId(documentReference.getId());
+                updateFoto();
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -310,6 +318,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Selecione imagem"), 0);
     }
+
     private void usarCamera() {
         File diretorio = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File imagem = new File(diretorio.getPath() + "/" + System.currentTimeMillis() + ".jpg");
@@ -327,13 +336,12 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
             if (requestCode == 15) {
                 Intent novaIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, imageFile);
                 sendBroadcast(novaIntent);
-
             }
             if (requestCode == 0) {
                 imageFile = data.getData();
             }
-
-            updateFoto();
+            fotos.add(String.valueOf(imageFile));
+            criarSlide();
         }
     }
 }

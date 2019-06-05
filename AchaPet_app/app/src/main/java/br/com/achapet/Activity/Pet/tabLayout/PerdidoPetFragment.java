@@ -40,6 +40,13 @@ public class PerdidoPetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.pet_fragment_perdido, container, false);
 
+        return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
         petModals = new ArrayList<>();
         db = FirebaseFirestore.getInstance();
 
@@ -50,13 +57,13 @@ public class PerdidoPetFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot documentPetAchado : task.getResult()) {
                         petModal = documentPetAchado.toObject(PetModal.class);
+                        petModal.setId(documentPetAchado.getId());
                         petModals.add(petModal);
                         setRecyclerView();
                     }
                 }
             }
         });
-        return view;
     }
 
     private void setRecyclerView() {
