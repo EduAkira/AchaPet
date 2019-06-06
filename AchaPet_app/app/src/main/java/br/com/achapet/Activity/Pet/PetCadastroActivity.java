@@ -12,7 +12,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -34,7 +33,6 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import br.com.achapet.Activity.Pet.slideImage.SlideUriAdapter;
 import br.com.achapet.Modal.PetModal;
@@ -77,9 +75,12 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
+    private String collection;
+    private String documentId;
+    private String pethFoto;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pet_cadastro_activity);
 
@@ -130,7 +131,6 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
         fotos = new ArrayList<>();
         cors = new ArrayList<>();
-
 
         firebaseStorage = FirebaseStorage.getInstance();
 
@@ -217,9 +217,9 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
         petCadastroButton.setEnabled(false);
 
         if(intent.getIntExtra(VALOR_TAB, 0) == 1){
-            petModal.setCollectionPet(COLLECTION_PET_ACHADO);
+            collection = COLLECTION_PET_ACHADO;
         }else{
-            petModal.setCollectionPet(COLLECTION_PET_PERDIDO);
+            collection = COLLECTION_PET_PERDIDO;
         }
 
         if(!petComposPorteEditText.getText().toString().isEmpty()){
@@ -273,8 +273,9 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
     private void updateFoto(){
         toolbarProgress.setVisibility(View.VISIBLE);
+        pethFoto = collection + "/" + documentId + "/";
         for(final String foto:fotos){
-            storageReference = firebaseStorage.getReference(petModal.pethFoto()+fotos.indexOf(foto));
+            storageReference = firebaseStorage.getReference(pethFoto + fotos.indexOf(foto));
             storageReference.putFile(Uri.parse(foto)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -283,7 +284,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
                         public void onSuccess(Uri uri) {
                             petModal.addFoto(uri.toString());
                             if(fotos.get(fotos.size()-1) == foto){
-                                db.collection(petModal.getCollectionPet()).document(petModal.getId()).update("foto", petModal.getFoto());
+                                db.collection(collection).document(documentId).update("foto", petModal.getFoto());
                                 finish();
                             }
                         }
@@ -296,10 +297,13 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
 
     private void cadastrarPet(){
         db = FirebaseFirestore.getInstance();
-        db.collection(petModal.getCollectionPet()).add(petModal).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
+        DocumentReference ref = db.collection(collection).document();
+        documentId = ref.getId();
+        ref.set(petModal);
+
+        /*db.collection(collection).add(petModal).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
             @Override
             public void onSuccess(DocumentReference documentReference) {
-                petModal.setId(documentReference.getId());
                 updateFoto();
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -309,7 +313,7 @@ public class PetCadastroActivity extends AppCompatActivity implements View.OnCli
                 toolbarProgress.setVisibility(View.GONE);
                 //Log.w("TAG", "Error adding document", e);
             }
-        });
+        });*/
     }
 
     private void usarGalleria(){

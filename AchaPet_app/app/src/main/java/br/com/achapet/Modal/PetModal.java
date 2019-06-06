@@ -9,38 +9,27 @@ public class PetModal  implements Serializable {
     public static String COLLECTION_PET_PERDIDO = "petPerdido";
     public static String COLLECTION_PET_ACHADO = "petAchado";
 
-    private String id = "";
     private String tipo = "";
     private String raca = "";
     private String porte = "";
     private String sexo = "";
     private String comentario = "";
-    private String collectionPet = "";
     private List<String> cor = new ArrayList<>();
     private List<String> foto = new ArrayList<>();
 
     public PetModal(){
     }
 
-    public PetModal(String id, String tipo, String raca, String porte, String sexo, String comentario, String collectionPet, List<String> cor, List<String> foto) {
-        this.id = id;
+    public PetModal(String tipo, String raca, String porte, String sexo, String comentario, List<String> cor, List<String> foto) {
         this.tipo = tipo;
         this.raca = raca;
         this.porte = porte;
         this.sexo = sexo;
         this.comentario = comentario;
-        this.collectionPet = collectionPet;
         this.cor = cor;
         this.foto = foto;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getTipo() {
         return tipo;
@@ -82,14 +71,6 @@ public class PetModal  implements Serializable {
         this.comentario = comentario;
     }
 
-    public String getCollectionPet() {
-        return collectionPet;
-    }
-
-    public void setCollectionPet(String collectionPet) {
-        this.collectionPet = collectionPet;
-    }
-
     public List<String> getCor() {
         return cor;
     }
@@ -101,6 +82,7 @@ public class PetModal  implements Serializable {
     public List<String> getFoto() {
         return foto;
     }
+
     public void setFoto(List<String> foto) {
         this.foto = foto;
     }
@@ -108,10 +90,4 @@ public class PetModal  implements Serializable {
     public void addFoto(String foto){
         this.foto.add(foto);
     }
-
-    public String pethFoto(){
-        return "/images/" + collectionPet + "/" + id +"/";
-    }
-
-
 }
