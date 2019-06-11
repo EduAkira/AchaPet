@@ -2,7 +2,6 @@ package br.com.achapet.Activity.Pet.listaCard;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,8 +36,8 @@ public class CardPetAdapter extends RecyclerView.Adapter<CardPetViewHolder> {
     public void onBindViewHolder(@NonNull final CardPetViewHolder cardPetViewHolder, int position) {
         PetModal petModal = petModals.get(position);
         String url = "";
-        if(!petModal.getFoto().isEmpty())
-            url = petModal.getFoto().get(0);
+        if(!petModal.getFotos().isEmpty())
+            url = petModal.getFotos().get(0);
 
         cardPetViewHolder.getImage().setImageURI(url);
         cardPetViewHolder.getRaca().setText(petModal.getRaca());

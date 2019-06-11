@@ -2,12 +2,13 @@ package br.com.achapet.Activity.Pet;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -22,6 +23,7 @@ import br.com.achapet.Modal.PessoaModal;
 import br.com.achapet.R;
 
 import static br.com.achapet.Activity.MainActivity.VALOR_TAB;
+import static br.com.achapet.Activity.Pet.PetDadosFragment.ADICIONAR_TAG;
 
 public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
 
@@ -33,7 +35,6 @@ public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItem
     private PetPesquisarBottomFragment petPesquisarBottomSheetDialogFragment;
     private PessoaModal pessoaModal;
     private int tabLayoutPosicaoAtivo;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,7 @@ public class PetActivity extends AppCompatActivity implements Toolbar.OnMenuItem
         tabLayoutPosicaoAtivo = tabLayout.getSelectedTabPosition();
         switch (item.getItemId()){
             case R.id.pet_menu_adicionar:
-                intent = new Intent(this, PetCadastroActivity.class);
+                intent = new Intent(this, PetDadosActivity.class);
                 intent.putExtra(VALOR_TAB, tabLayoutPosicaoAtivo);
                 startActivity(intent);
             break;

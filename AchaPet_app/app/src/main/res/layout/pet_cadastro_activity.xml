@@ -24,35 +24,12 @@
                     android:layout_marginLeft="@dimen/marginX"
                     android:layout_marginRight="@dimen/marginX"
                     android:gravity="center"
-                    android:text="Adicione ao menos uma foto"
+                    android:text="Adicione ao menos uma fotos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/maginT"
+                    android:layout_marginTop="@dimen/marginT"
                     android:textAlignment="center"
                     android:textSize="28sp"/>
-                <include layout="@layout/pet_barra_servico_foto"/>
-                <include layout="@layout/include_pet_campos"/>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:theme="@style/InputLayoutStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/marginX"
-                    android:layout_marginRight="@dimen/marginX"
-                    android:hint="Comentario">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
-                </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/pet_cadastro_button"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="@dimen/marginX"
-                    android:layout_marginRight="@dimen/marginX"
-                    android:layout_marginBottom="@dimen/maginT"
-                    android:layout_height="64dp"
-                    android:text="Cadastrar"
-                    android:layout_gravity="right"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

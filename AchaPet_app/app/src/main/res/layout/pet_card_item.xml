@@ -17,10 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/maginT"
+            android:layout_marginTop="@dimen/marginT"
             android:layout_marginLeft="@dimen/marginX"
             android:layout_marginRight="@dimen/marginX"
-            android:layout_marginBottom="@dimen/maginT">
+            android:layout_marginBottom="@dimen/marginT">
             <TextView
                 android:id="@+id/pet_card_raca"
                 android:layout_width="wrap_content"

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="marginX">16dp</dimen>
-    <dimen name="maginT">8dp</dimen>
+    <dimen name="marginT">8dp</dimen>
 </resources>

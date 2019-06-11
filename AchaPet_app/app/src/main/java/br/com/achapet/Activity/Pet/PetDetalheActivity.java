@@ -3,7 +3,6 @@ package br.com.achapet.Activity.Pet;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
@@ -25,7 +24,7 @@ public class PetDetalheActivity extends AppCompatActivity {
         setContentView(R.layout.pet_detalhe_activity);
         petModal = new PetModal();
 
-        slideImagePagerAdapter = new SlideUriAdapter(getBaseContext(), petModal.getFoto());
+        slideImagePagerAdapter = new SlideUriAdapter(getBaseContext(), petModal.getFotos());
         detalheViewPage = (ViewPager) findViewById(R.id.slide_viewPage);
         detalheTablayout = (TabLayout) findViewById(R.id.slide_tablayout);
         detalheTablayout.setupWithViewPager(detalheViewPage, true);

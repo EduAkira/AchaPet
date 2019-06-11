@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PessoaModal{
@@ -20,7 +21,23 @@ public class PessoaModal{
     private String uid;
     private String nome;
     private String email;
-    private List<String>petRegistro;
+    private List<String>petRegistro = new ArrayList<>();
+
+    public String getUid() {
+        return uid;
+    }
+
+    public List<String> getPetRegistro() {
+        return petRegistro;
+    }
+
+    public void setPetRegistro(List<String> petRegistro) {
+        this.petRegistro = petRegistro;
+    }
+
+    public void addPetRegistro(String id){
+        this.petRegistro.add(id);
+    }
 
     boolean emailVerificado;
 

@@ -11,7 +11,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/maginT"
+            android:layout_marginTop="@dimen/marginT"
             android:textColor="@color/colorPrimary"
             android:text="Pesquisa"
             android:textAlignment="center"
@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/maginT"
+            android:layout_marginTop="@dimen/marginT"
             android:layout_gravity="center"
             android:textAlignment="center"
             android:text="Informe os dados do Pet"/>

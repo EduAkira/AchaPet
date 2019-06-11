@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="@dimen/maginT"
+        android:layout_marginTop="@dimen/marginT"
         android:layout_marginLeft="@dimen/marginX"
         android:layout_marginRight="@dimen/marginX">
         <TextView
@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/maginT"
+            android:layout_marginTop="@dimen/marginT"
             android:textAlignment="center"
             android:text="Por favor, informe o E-mail associado a sua conta que enviamos um link para efetuar a troca de senha."/>
         <com.google.android.material.textfield.TextInputLayout

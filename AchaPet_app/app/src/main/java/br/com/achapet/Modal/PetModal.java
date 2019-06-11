@@ -14,20 +14,20 @@ public class PetModal  implements Serializable {
     private String porte = "";
     private String sexo = "";
     private String comentario = "";
-    private List<String> cor = new ArrayList<>();
-    private List<String> foto = new ArrayList<>();
+    private List<String> cores = new ArrayList<>();
+    private List<String> fotos = new ArrayList<>();
 
     public PetModal(){
     }
 
-    public PetModal(String tipo, String raca, String porte, String sexo, String comentario, List<String> cor, List<String> foto) {
+    public PetModal(String tipo, String raca, String porte, String sexo, String comentario, List<String> cores, List<String> fotos) {
         this.tipo = tipo;
         this.raca = raca;
         this.porte = porte;
         this.sexo = sexo;
         this.comentario = comentario;
-        this.cor = cor;
-        this.foto = foto;
+        this.cores = cores;
+        this.fotos = fotos;
     }
 
 
@@ -71,23 +71,27 @@ public class PetModal  implements Serializable {
         this.comentario = comentario;
     }
 
-    public List<String> getCor() {
-        return cor;
+    public List<String> getCores() {
+        return cores;
     }
 
-    public void setCor(List<String> cor) {
-        this.cor = cor;
+    public void setCores(List<String> cores) {
+        this.cores = cores;
     }
 
-    public List<String> getFoto() {
-        return foto;
+    public void addCor(String cor){
+        this.cores.add(cor);
     }
 
-    public void setFoto(List<String> foto) {
-        this.foto = foto;
+    public List<String> getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(List<String> fotos) {
+        this.fotos = fotos;
     }
 
     public void addFoto(String foto){
-        this.foto.add(foto);
+        this.fotos.add(foto);
     }
 }

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.Pet.PetCadastroFragment">
+    tools:context=".Activity.Pet.PetDadosFragment">
     <com.google.android.material.textfield.TextInputLayout
         android:theme="@style/InputLayoutStyle"
         android:layout_width="match_parent"
@@ -35,7 +35,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/maginT"
+        android:layout_marginBottom="@dimen/marginT"
         android:text="Caso nao saiba a raça, preencha o campo com 'sem raça definida'"
         android:textSize="10sp" />
     <LinearLayout
@@ -117,7 +117,26 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="@color/colorPrimary"
-            android:text="nova cor" />
+            android:text="nova cores" />
     </LinearLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:theme="@style/InputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Comentario">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pet_campos_comentario"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pet_fragment_button"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/marginT"
+        android:layout_marginBottom="@dimen/marginT"
+        android:layout_height="64dp"
+        android:layout_gravity="right"/>
 </LinearLayout>

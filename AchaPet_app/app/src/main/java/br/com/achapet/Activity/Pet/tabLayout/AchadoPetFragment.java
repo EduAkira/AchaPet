@@ -61,7 +61,6 @@ public class AchadoPetFragment extends Fragment {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot documentPetAchado : task.getResult()) {
                         petModal = documentPetAchado.toObject(PetModal.class);
-                        petModal.setId(documentPetAchado.getId());
                         petModals.add(petModal);
                         setRecyclerView();
                     }
