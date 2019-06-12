@@ -30,6 +30,11 @@
         <item>Spitz alemão (Lulu da Pomerânia)</item>
         <item>Yorkshire</item>
     </string-array>
+    <string-array name="cachorros_cores">
+        <item>Cor1</item>
+        <item>Cor2</item>
+        <item>Cor3</item>
+    </string-array>
 
     <string-array name="gatos">
         <item>Sem raça definida</item>
@@ -43,6 +48,11 @@
         <item>Siamês</item>
         <item>Siberiano</item>
     </string-array>
+    <string-array name="gatos_cores">
+        <item>Cor1</item>
+        <item>Cor2</item>
+        <item>Cor3</item>
+    </string-array>
 
     <string-array name="passaros">
         <item>Não sei a espécie</item>
@@ -54,8 +64,24 @@
         <item>Papagaio</item>
         <item>Periquito</item>
     </string-array>
+    <string-array name="passaros_cores">
+        <item>Cor1</item>
+        <item>Cor2</item>
+        <item>Cor3</item>
+    </string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string-array name="tipos">
+        <item>Cachorro</item>
+        <item>Gato</item>
+        <item>Passaro</item>
+    </string-array>
+    <string-array name="sexos">
+        <item>Masculino</item>
+        <item>Feminino</item>
+    </string-array>
+    <string-array name="portes">
+        <item>Pequeno</item>
+        <item>Medio</item>
+        <item>Grande</item>
+    </string-array>
 </resources>

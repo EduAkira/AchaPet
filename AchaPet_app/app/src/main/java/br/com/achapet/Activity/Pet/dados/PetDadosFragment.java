@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet;
+package br.com.achapet.Activity.Pet.dados;
 
 
 import android.content.Context;
@@ -6,9 +6,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -23,18 +26,17 @@ public class PetDadosFragment extends Fragment implements View.OnFocusChangeList
     static final String EXTRA_TITULO = "TITULO";
     static final String EXTRA_PETMODAL = "PETMODAL";
     static final String EDITAR_TAG = "EDITAR";
-    static final String ADICIONAR_TAG = "ADICIONAR";
+    public static final String ADICIONAR_TAG = "ADICIONAR";
 
     private View viewFlame;
 
-    private EditText petComposPorteEditText;
-    private EditText petComposSexoEditText;
-    private EditText petComposTipoEditText;
-    private EditText petComposCorEditText;
-    private EditText petComposCor1EditText;
-    private EditText petComposComentarioEditText;
+    private AutoCompleteTextView petComposPorteEditText;
+    private AutoCompleteTextView petComposSexoEditText;
+    private AutoCompleteTextView petComposTipoEditText;
+    private AutoCompleteTextView petComposCorEditText;
+    private AutoCompleteTextView petComposCor1EditText;
     private AutoCompleteTextView petCampoRacaEditText;
-
+    private EditText petComposComentarioEditText;
 
     private PetDadosListener petDadosListener;
 
@@ -61,8 +63,8 @@ public class PetDadosFragment extends Fragment implements View.OnFocusChangeList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         viewFlame = inflater.inflate(R.layout.pet_dados_fragment, container, false);
-        final Bundle bundle = getArguments();
 
+        final Bundle bundle = getArguments();
         if(bundle.getString(EXTRA_TITULO).equals(EDITAR_TAG)){
             petModal = (PetModal) bundle.getSerializable(EXTRA_PETMODAL);
         }else{
@@ -73,24 +75,22 @@ public class PetDadosFragment extends Fragment implements View.OnFocusChangeList
         button.setText(bundle.getString(EXTRA_TITULO));
         button.setOnClickListener(this);
 
-        petComposPorteEditText = viewFlame.findViewById(R.id.pet_campos_porte);
-        petComposSexoEditText = viewFlame.findViewById(R.id.pet_campos_sexo);
         petComposTipoEditText = viewFlame.findViewById(R.id.pet_campos_tipo);
         petCampoRacaEditText = viewFlame.findViewById(R.id.pet_campos_raca);
+        petComposPorteEditText = viewFlame.findViewById(R.id.pet_campos_porte);
+        petComposSexoEditText = viewFlame.findViewById(R.id.pet_campos_sexo);
         petComposCorEditText = viewFlame.findViewById(R.id.pet_campos_cor);
         petComposCor1EditText = viewFlame.findViewById(R.id.pet_campos_cor1);
         petComposComentarioEditText = viewFlame.findViewById(R.id.pet_campos_comentario);
 
-        petCampoRacaEditText.setOnFocusChangeListener(this);
+        petComposTipoEditText.setOnFocusChangeListener(this);
+        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposTipoEditText, getResources().getStringArray(R.array.tipos),context);
+        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposPorteEditText, getResources().getStringArray(R.array.portes),context);
+        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposSexoEditText, getResources().getStringArray(R.array.sexos),context);
+
 
         viewFlame.findViewById(R.id.pet_campos_nova_cor).setOnClickListener(this);
         viewFlame.findViewById(R.id.pet_fragment_button).setOnClickListener(this);
-
-        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposPorteEditText, R.menu.pet_porte_textfield, context);
-        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposSexoEditText, R.menu.pet_sexo_textfield, context);
-        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposTipoEditText, R.menu.pet_tipo_textfield, context);
-        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposCorEditText, R.menu.pet_cor_textfield, context);
-        ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposCor1EditText, R.menu.pet_cor_textfield, context);
 
         return viewFlame;
     }
@@ -98,17 +98,25 @@ public class PetDadosFragment extends Fragment implements View.OnFocusChangeList
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
         String[] racas;
+        String[] cores;
         switch (v.getId()) {
-            case R.id.pet_campos_raca:
-                if(petComposTipoEditText.getText().toString().equals("Cachorro"))
-                    racas = getResources().getStringArray(R.array.cachorros);
-                else if(petComposTipoEditText.getText().toString().equals("Gato"))
-                    racas = getResources().getStringArray(R.array.gatos);
-                else
-                    racas = getResources().getStringArray(R.array.passaros);
 
-                ArrayAdapter<String> adapter = new ArrayAdapter(context, android.R.layout.simple_dropdown_item_1line, racas);
-                petCampoRacaEditText.setAdapter(adapter);
+            case R.id.pet_campos_tipo:
+                if(petComposTipoEditText.getText().toString().equals("Cachorro")){
+                    racas = getResources().getStringArray(R.array.cachorros);
+                    cores = getResources().getStringArray(R.array.cachorros_cores);
+                }else if(petComposTipoEditText.getText().toString().equals("Gato")){
+                    racas = getResources().getStringArray(R.array.gatos);
+                    cores = getResources().getStringArray(R.array.gatos_cores);
+                }else{
+                    racas = getResources().getStringArray(R.array.passaros);
+                    cores = getResources().getStringArray(R.array.passaros_cores);
+                }
+
+                ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petCampoRacaEditText, racas ,context);
+                ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposCorEditText, cores,context);
+                ListPopupWindowDialogHelper.setListPopupWindowDialogHelper(petComposCorEditText, cores,context);
+
                 break;
         }
     }

@@ -24,7 +24,6 @@ import br.com.achapet.Activity.Pet.listaCard.CardPetAdapter;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 
-import static br.com.achapet.Modal.PetModal.COLLECTION_PET_ACHADO;
 import static br.com.achapet.Modal.PetModal.COLLECTION_PET_PERDIDO;
 
 public class PerdidoPetFragment extends Fragment {
@@ -38,7 +37,7 @@ public class PerdidoPetFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.pet_fragment_perdido, container, false);
+        view = inflater.inflate(R.layout.pet_fragment_recycler, container, false);
 
         return view;
     }

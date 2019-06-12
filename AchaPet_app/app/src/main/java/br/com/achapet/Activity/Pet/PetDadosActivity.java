@@ -23,16 +23,18 @@ import com.google.firebase.storage.UploadTask;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.achapet.Activity.Pet.dados.PetDadosFragment;
+import br.com.achapet.Activity.Pet.slideImage.PetSlideFragment;
 import br.com.achapet.Modal.PessoaModal;
 import br.com.achapet.Modal.PetModal;
 import br.com.achapet.R;
 
 import static br.com.achapet.Activity.MainActivity.VALOR_TAB;
-import static br.com.achapet.Activity.Pet.PetDadosFragment.ADICIONAR_TAG;
+import static br.com.achapet.Activity.Pet.dados.PetDadosFragment.ADICIONAR_TAG;
 import static br.com.achapet.Modal.PetModal.COLLECTION_PET_ACHADO;
 import static br.com.achapet.Modal.PetModal.COLLECTION_PET_PERDIDO;
 
-public class PetDadosActivity extends AppCompatActivity implements PetSlideFragment.FotoListener, PetDadosFragment.PetDadosListener{
+public class PetDadosActivity extends AppCompatActivity implements PetSlideFragment.FotoListener, PetDadosFragment.PetDadosListener {
 
     private Toolbar toolbar;
     private ProgressBar toolbarProgress;
@@ -153,18 +155,13 @@ public class PetDadosActivity extends AppCompatActivity implements PetSlideFragm
 
     @Override
     public void RemoverListener(int pos) {
-        if(fotos.size() > pos){
-            fotos.remove(pos);
-        }
+        fotos.remove(pos);
     }
 
     @Override
     public void PetDadosListener(PetModal petModal) {
         this.petModal = petModal;
         this.petModal.setFotos(fotos);
-
-        pessoaModal.addPetRegistro(documentId);
-
         registrar();
         finish();
     }

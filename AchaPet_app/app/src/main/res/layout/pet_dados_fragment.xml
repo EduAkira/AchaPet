@@ -4,32 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activity.Pet.PetDadosFragment">
+    tools:context=".Activity.Pet.dados.PetDadosFragment">
     <com.google.android.material.textfield.TextInputLayout
         android:theme="@style/InputLayoutStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/marginX"
         android:hint="Tipo de animal">
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/pet_campos_tipo"
             android:inputType="text"
             android:imeOptions="actionNext"
-            android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"/>
+            android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:theme="@style/InputLayoutStyle"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:hint="Raça">
-        <AutoCompleteTextView
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textAutoComplete"
+            android:layout_height="wrap_content"
             android:id="@+id/pet_campos_raca"
-            android:imeOptions="actionDone"/>
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -50,13 +55,15 @@
             android:layout_marginRight="@dimen/marginX"
             android:layout_weight="1"
             android:hint="Porte">
-            <com.google.android.material.textfield.TextInputEditText
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:id="@+id/pet_campos_porte"
-                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"/>
+                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:theme="@style/InputLayoutStyle"
@@ -64,13 +71,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:hint="Sexo">
-            <com.google.android.material.textfield.TextInputEditText
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:id="@+id/pet_campos_sexo"
-                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"/>
+                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
@@ -79,7 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Cor">
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.appcompat.widget.AppCompatAutoCompleteTextView
             android:theme="@style/InputLayoutStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -87,7 +96,9 @@
             android:id="@+id/pet_campos_cor"
             android:inputType="text"
             android:imeOptions="actionNext"
-            android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"/>
+            android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"/>
     </com.google.android.material.textfield.TextInputLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -102,14 +113,16 @@
             android:layout_marginBottom="@dimen/marginX"
             android:visibility="invisible"
             android:hint="Nova Cor">
-            <com.google.android.material.textfield.TextInputEditText
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
                 android:theme="@style/InputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/pet_campos_cor1"
                 android:inputType="text"
                 android:imeOptions="actionNext"
-                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"/>
+                android:drawableRight="@drawable/ic_arrow_drop_down_black_24dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.button.MaterialButton
             android:id="@+id/pet_campos_nova_cor"
@@ -124,7 +137,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Comentario">
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/pet_campos_comentario"
             android:layout_width="match_parent"

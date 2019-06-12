@@ -23,7 +23,6 @@
         <activity
             android:name=".Activity.MainActivity"
             android:theme="@style/NoAppTheme" />
-        <activity android:name=".Activity.Pet.PetCadastroActivity" />
         <activity android:name=".Activity.Pet.PetDetalheActivity" />
         <activity
             android:name=".Activity.Pet.PetActivity"

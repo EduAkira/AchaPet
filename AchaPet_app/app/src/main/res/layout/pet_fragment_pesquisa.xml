@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:textAlignment="center"
             android:text="Informe os dados do Pet"/>
-        <include layout="@layout/include_pet_campos"/>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/pet_cadastro_button"
             android:backgroundTint="@color/colorPrimary"

@@ -1,4 +1,4 @@
-package br.com.achapet.Activity.Pet;
+package br.com.achapet.Activity.Pet.slideImage;
 
 import android.app.Activity;
 import android.content.Context;
@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import br.com.achapet.Activity.Pet.slideImage.SlideUriAdapter;
 import br.com.achapet.R;
 
 public class PetSlideFragment extends Fragment implements View.OnClickListener {
