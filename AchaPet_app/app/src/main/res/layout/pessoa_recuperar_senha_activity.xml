@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Pessoa.RecuperarSenhaPessoaActivity"
+    android:orientation="vertical">
+    <include layout="@layout/include_toolbar"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/marginT"
+        android:layout_marginLeft="@dimen/marginX"
+        android:layout_marginRight="@dimen/marginX">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Esqueceu sua senha ?"
+            android:textAlignment="center"
+            android:textSize="28sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/marginT"
+            android:textAlignment="center"
+            android:text="Por favor, informe o E-mail associado a sua conta que enviamos um link para efetuar a troca de senha."/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="@dimen/marginX"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:hint="Email">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/recuperar_email"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:inputType="textWebEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/recuperar_button"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/marginX"
+            android:layout_height="64dp"
+            android:text="Recuperar"
+            android:layout_gravity="right"/>
+    </LinearLayout>
+</LinearLayout>

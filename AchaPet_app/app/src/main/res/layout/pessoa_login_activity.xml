@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Pessoa.LoginPessoaActivity"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/marginX"
+            android:layout_marginRight="@dimen/marginX">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/marginT"
+                android:layout_marginBottom="@dimen/marginX"
+                android:src="@drawable/achapet"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conectar com"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:layout_marginBottom="@dimen/marginX"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/marginX">
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/login_google"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="visible"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OU"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/marginX"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:hint="Email"
+                android:layout_marginBottom="@dimen/marginX">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:inputType="textEmailAddress"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:hint="Senha"
+                android:layout_marginBottom="@dimen/marginX">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/login_senha"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:inputType="textPassword"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_conectar"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="Conectar"
+                android:layout_gravity="right"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/login_esqueci_senha"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Esqueci minha Senha" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Não tem uma conta ?"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/login_registrar"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Registra - se" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

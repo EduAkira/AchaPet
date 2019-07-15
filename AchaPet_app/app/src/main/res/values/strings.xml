@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">AchaPet</string>
+
+    <string-array name="cachorros">
+        <item>Sem raça definida</item>
+        <item>Basset</item>
+        <item>Beagle</item>
+        <item>Border collie</item>
+        <item>Boxer</item>
+        <item>Buldogue francês</item>
+        <item>Buldogue inglês</item>
+        <item>Chihuahua</item>
+        <item>Chow chow</item>
+        <item>Spaniel inglês</item>
+        <item>Dachshund</item>
+        <item>Dálmata</item>
+        <item>Golden retriever</item>
+        <item>Husky siberiano</item>
+        <item>Labrador</item>
+        <item>Lhasa apso</item>
+        <item>Maltês</item>
+        <item>Pastor alemão</item>
+        <item>Pinscher</item>
+        <item>Pitbull</item>
+        <item>Poodle</item>
+        <item>Pug</item>
+        <item>Rottweiler</item>
+        <item>Schnauzer</item>
+        <item>Shih Tzu</item>
+        <item>Spitz alemão (Lulu da Pomerânia)</item>
+        <item>Yorkshire</item>
+    </string-array>
+    <string-array name="cachorros_cores">
+        <item>Cor1</item>
+        <item>Cor2</item>
+        <item>Cor3</item>
+    </string-array>
+
+    <string-array name="gatos">
+        <item>Sem raça definida</item>
+        <item>Angorá</item>
+        <item>British Shorthair</item>
+        <item>Burmese</item>
+        <item>Himalaia</item>
+        <item>Maine Coon</item>
+        <item>Persa</item>
+        <item>Ragdoll</item>
+        <item>Siamês</item>
+        <item>Siberiano</item>
+    </string-array>
+    <string-array name="gatos_cores">
+        <item>Cor1</item>
+        <item>Cor2</item>
+        <item>Cor3</item>
+    </string-array>
+
+    <string-array name="passaros">
+        <item>Não sei a espécie</item>
+        <item>Agapornis</item>
+        <item>Arara</item>
+        <item>Cacatua</item>
+        <item>Calopsita</item>
+        <item>Canário</item>
+        <item>Papagaio</item>
+        <item>Periquito</item>
+    </string-array>
+    <string-array name="passaros_cores">
+        <item>Cor1</item>
+        <item>Cor2</item>
+        <item>Cor3</item>
+    </string-array>
+
+    <string-array name="tipos">
+        <item>Cachorro</item>
+        <item>Gato</item>
+        <item>Passaro</item>
+    </string-array>
+    <string-array name="sexos">
+        <item>Masculino</item>
+        <item>Feminino</item>
+    </string-array>
+    <string-array name="portes">
+        <item>Pequeno</item>
+        <item>Medio</item>
+        <item>Grande</item>
+    </string-array>
+</resources>
